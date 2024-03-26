@@ -103,6 +103,12 @@ $captcha = $req->fetchAll();
                     <label for="floatingPasswordConfirm">Écrire à nouveau le mot de passe</label>
                 </div>
 
+                <div class="form-check my-3">
+                    <input class="form-check-input" name="newsletter" type="checkbox" value="" id="CheckNewsletter" checked>
+                    <label class="form-check-label" for="CheckNewsletter">
+                        S'inscrire à la newsletter
+                </div>
+
                 <h2 class="my-3 text-center">Captcha de vérification</h2>
                 <?php
                 

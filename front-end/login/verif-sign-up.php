@@ -231,6 +231,20 @@ if (!$result) {
     exit;
 }
 
+// Inscription de l'email à la newsletter
+if (isset($_POST['newsletter'])) {
+    // Écrire la requête INSERT INTO à trous
+    $q = 'INSERT INTO newsletter (email) VALUES (:email)';
+    // Préparation de la requête
+    $req = $bdd->prepare($q);
+    // Exécution de la requête
+    $req->execute([
+        'email' => $_POST['email']
+    ]);
+}
+
+
+
 
 // Envoi d'un email de confirmation
 

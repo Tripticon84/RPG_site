@@ -14,7 +14,7 @@
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto align-items-center">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link d-flex active gap-3 fs-6" aria-current="page" href="#">
+              <a class="nav-link d-flex gap-3 fs-6" aria-current="page" href="/front-office/index.php">
                 <i class="bi bi-sidebar bi-house-fill"></i>
                 Accueil
               </a>
@@ -42,7 +42,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex gap-3 fs-6" href="#">
+              <a class="nav-link d-flex gap-3 fs-6" href="/front-office/newsletter/newsletter.php">
                 <i class="bi bi-sidebar bi-envelope"></i>
                 Newsletters
               </a>
@@ -66,7 +66,7 @@
             <hr class="my-3">
                        
 
-          <!-- Deconnexion -->
+          <!-- Déconnexion -->
           
             
             <li class="nav-item">

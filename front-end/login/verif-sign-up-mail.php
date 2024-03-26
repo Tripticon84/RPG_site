@@ -80,7 +80,7 @@ if ($email_verif[0]['code'] == $_POST['code']) {
 
 
 
-    header('location:index.php' . '?' . 'success=Compte vérifier avec succès.'); // FIXME: Renvoi vers la page des campagnes du joueur
+    header('location:../index.php' . '?' . 'success=Compte vérifier avec succès.'); // FIXME: Renvoi vers la page les campagnes du joueur
     exit;
 }
 
