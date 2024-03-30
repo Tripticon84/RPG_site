@@ -18,7 +18,12 @@
 </head>
 
 <?php $title = 'Règles';
-include('././includes/head.php'); ?>
+include('././includes/head.php'); 
+// Log de la page visitée
+require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/script.php';
+logPage($title);
+
+?>
 
 <body>
     <?php include('./includes/header.php'); ?>

@@ -14,8 +14,11 @@ function writeLogSignIn($success, $email) {
     fclose($log);
 }
 
+// Connexion à la BDD
+require_once '../script.php';
+$bdd = PDOConnect();
 
-// Si un paramètre email à été envoyé via la méthode post et qu'il n'est pas vide > créer un cookie 'email' qui expire dans 30j
+// Si un paramètre email à été envoyé via la méthode post et qu'il n'est pas vide > créer un cookie 'email' qui expire dans 1h
 if (isset($_POST['email']) && !empty($_POST['email'])) {
     setcookie('email', $_POST['email'], time() + 3600);
 }
@@ -46,13 +49,6 @@ if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 
 
 // CAPTCHA
-
-// Connexion à la BD
-try {
-    $bdd = new PDO('mysql:host=localhost:8889;dbname=roll-of-odyssey', 'root', 'root');
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
 
 $id = $_POST['captcha_id'];
 
@@ -87,13 +83,6 @@ if ($id[0]['reponse'] != $_POST['captcha_reponse']) {
 
 
 // Si le compte utilisateur n'existe pas en db > redirection
-// Connexion à la BD
-try {
-    $bdd = new PDO('mysql:host=localhost:8889;dbname=roll-of-odyssey', 'root', 'root');
-}
-catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
 
 // Écrire la requête SELECT à trous
 $q = 'SELECT id FROM users WHERE email = :email AND password = :password';
@@ -118,7 +107,7 @@ $results = $req->fetchAll();
 // Si $results est vide > redirection
 if (empty($results)) {
     writeLogSignIn(false, $_POST['email']);
-    header('location:sign-in.php?message=Identifiants inconnue');
+    header('location:sign-in.php' . '?' . 'message=Identifiants inconnue');
     exit;
 }
 

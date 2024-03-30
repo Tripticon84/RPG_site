@@ -1,5 +1,9 @@
 <?php
 
+    // Connexion à la BDD
+    require_once '../script.php';
+    $bdd = PDOConnect();
+
 // Vérifier si le champ est vide
 if (empty($_POST['code'])) {
     header('location:sign-up-mail.php' . '?' . 'message=Code manquant.');
@@ -7,13 +11,6 @@ if (empty($_POST['code'])) {
 }
 
 // Vérifier si le code est valide
-
-// Appeler la base de données
-try {
-    $bdd = new PDO('mysql:host=localhost:8889;dbname=roll-of-odyssey', 'root', 'root');
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
 
 // Écrire la requête SELECT à trous
 $q = 'SELECT email,code,expiration FROM email_verif WHERE email = :email AND code = :code';

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" data-bs-theme="light">
+<html lang="fr">
 <head>
     <!-- Required meta tags -->
     <meta charset="UTF-8">
@@ -21,13 +21,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
     />
-    
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+        src="/js/bootstrap.bundle.min.js"
+    ></script>
 </head>
-
-    <body>
-        <!-- Bootstrap JavaScript Libraries -->
-        <script
-            src="/js/bootstrap.bundle.min.js"
-        ></script>
-    </body>
-</html>

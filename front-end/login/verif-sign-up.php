@@ -1,6 +1,8 @@
 <?php
 
-$PDO = "'mysql:host=localhost:8889;dbname=roll-of-odyssey', 'root', 'root'";
+    // Connexion à la BDD
+    require_once '../script.php';
+    $bdd = PDOConnect();
 
 // Fichier de vérification d'inscription
 
@@ -103,12 +105,6 @@ if ($_POST['password'] != $_POST['password_confirm']) {
 
 // CAPTCHA
 
-// Connexion à la BD
-try {
-    $bdd = new PDO('mysql:host=localhost:8889;dbname=roll-of-odyssey', 'root', 'root');
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
 
 $id = $_POST['captcha_id'];
 
@@ -146,12 +142,6 @@ if ($id[0]['reponse'] != $_POST['captcha_reponse']) {
 
 // Vérification si l'email ou le pseudo existe déjà dans la base de données
 
-// Connexion à la BD
-try {
-    $bdd = new PDO('mysql:host=localhost:8889;dbname=roll-of-odyssey', 'root', 'root');
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
 
 // Écrire la requête SELECT à trous
 $q = 'SELECT id,email,pseudo FROM users WHERE email = :email OR pseudo = :pseudo';
@@ -197,12 +187,6 @@ if (!empty($results) && $results[0]['email'] == $_POST['email']) {
 
 // Requête préparée avec des marqueurs nominatifs
 
-// Connexion à la BD
-try {
-    $bdd = new PDO('mysql:host=localhost:8889;dbname=roll-of-odyssey', 'root', 'root');
-} catch (Exception $e) {
-    die('Erreur : ' . $e->getMessage());
-}
 
 // Écrire la requête INSERT INTO à trous
 $q = 'INSERT INTO users (pseudo, email, password, prenom, nom) VALUES (:pseudo, :email, :password, :prenom, :nom)';

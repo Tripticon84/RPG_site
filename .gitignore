@@ -13,4 +13,8 @@ logs/
 
 # Ignorer les images sauf default.jpg
 !/images/users/default.jpg
+
+
+# Fichiers de configuration
 PHPMailer/config.php
+config.php

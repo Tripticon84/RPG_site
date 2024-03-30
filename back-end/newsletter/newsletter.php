@@ -1,6 +1,8 @@
 <?php $title = 'Newsletter';
 include('../includes/head.php');
-require 'newsletter_script.php'; ?>
+require 'newsletter_script.php'; 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/script.php'; ?>
+
 
 <body>
     <? include('../includes/header.php'); ?>
@@ -14,25 +16,18 @@ require 'newsletter_script.php'; ?>
                         
                     </div>
                     <div class="col-6 offset-1">
-                        <?php if (isset($_GET['message']) && !empty($_GET['message'])) {
-                            echo
-                            '<div class="alert alert-warning alert-dismissible fade show my-4" role="alert">'
-                                . '<strong>Erreur : </strong>' . $_GET['message'] .
-                                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>';
+                        <?php 
+                            if (isset($_GET['message']) && !empty($_GET['message'])) {
+                                alertWarning('Erreur', $_GET['message']);
                         }
                         ?>
                         <?php
                         if (isset($_GET['success']) && !empty($_GET['success'])) {
-                            echo
-                            '<div class="alert alert-success alert-dismissible fade show my-4" role="alert">'
-                                . '<strong>Succès : </strong>' . $_GET['success'] .
-                                '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>';
+                            alertSuccess('Succès', $_GET['success']);
                         }
                         ?>
                         <!-- Liste des newsletters -->
-                        <table class="table table">
+                        <table class="table">
 
                             <tr>
                                 <th>Email</th>

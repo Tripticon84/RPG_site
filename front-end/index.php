@@ -1,16 +1,11 @@
 <?php $title = 'Accueil';
 
 // Log de la page visitée
-    // Ouverture du fichier d'inscription
-    $log = fopen($_SERVER['DOCUMENT_ROOT'] . '\logs\pages.txt', 'a+');
-    // Création de la ligne à ajouter : AAAA/mm/jj - hh:mm:ss -  Tentative de connexion réussie/échouée de : {email}
-    $line = getenv("REMOTE_ADDR") . ' - ' . date('d/m/Y - H:i:s') . ' - ' . 'Visite de ' . $title . ' par ' . (isset($_SESSION['email']) ? $_SESSION['email'] : 'Anonyme') . "\n";
+require_once 'script.php';
+logPage($title);
 
-    // Ajout de la ligne au fichier ouvert 
-    fputs($log, $line);
-
-    // Fermeture du fichier ouvert
-    fclose($log);
+// Connexion à la BDD
+$bdd = PDOConnect();
 
 include('./includes/head.php'); ?>
 
@@ -22,7 +17,7 @@ include('./includes/head.php'); ?>
                 <div class="row align-items-center">
                     <div class="col-md-6 col-sm">
                         <p class=" display-1 fw-bold">Redéfinissez les règles</p>
-                        <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos libero blanditiis dolor, eos provident expedita, ratione in, error debitis quo reprehenderit. Labore ducimus natus porro.</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos libero blanditiis dolor, eos provident expedita, ratione in, error debitis quo reprehenderit. Labore ducimus natus porro.</p>
                         <a class="btn btn-primary" href="#" role="button">S'inscrire maintenant</a>
                     </div>
                     <div class="col-md-6 col-sm">

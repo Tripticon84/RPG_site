@@ -2,28 +2,19 @@
     <link rel="stylesheet" href="../css/login.css">
 <?php $title = 'Inscription';
 
+
 // Log de la page visitée
-    // Ouverture du fichier d'inscription
-    $log = fopen($_SERVER['DOCUMENT_ROOT'] . '\logs\pages.txt', 'a+');
-    // Création de la ligne à ajouter : AAAA/mm/jj - hh:mm:ss -  Tentative de connexion réussie/échouée de : {email}
-    $line = getenv("REMOTE_ADDR") . ' - ' . date('d/m/Y - H:i:s') . ' - ' . 'Visite de ' . $title . ' par ' . (isset($_SESSION['email']) ? $_SESSION['email'] : 'Anonyme') . "\n";
+require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/script.php';
+logPage($title);
 
-    // Ajout de la ligne au fichier ouvert 
-    fputs($log, $line);
+include('../includes/head.php'); 
+include_once('../includes/message.php'); ?>
 
-    // Fermeture du fichier ouvert
-    fclose($log);
-
-include('../includes/head.php'); ?>
 
 <?php
-
-    try {
-        $bdd = new PDO('mysql:host=localhost:8889;dbname=roll-of-odyssey', 'root', 'root');
-    }
-    catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
+    // Connexion à la BDD
+    require_once '../script.php';
+    $bdd = PDOConnect();
     
     // Écrire la requête SELECT à trous
     $q = 'SELECT id,question FROM captcha ORDER BY RAND() LIMIT 1;';
@@ -53,15 +44,9 @@ $captcha = $req->fetchAll();
                 action="verif-sign-up.php"
                 method="post">
                 <h2 class="text-center my-3">S'inscrire</h2>
-                <?php if(isset($_GET['message']) && !empty($_GET['message'])) {
-                    echo
-                        '<div class="alert alert-warning alert-dismissible fade show my-4" role="alert">'
-                      . '<strong>Erreur : </strong>' . htmlspecialchars($_GET['message']) .
-                        '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-                        </button>
-                        </div>';
-                }
-                
+                <?php 
+                if(isset($_GET['message']) && !empty($_GET['message']))
+                    alertWarning('Erreur', $_GET['message']);
                 ?>
 
                 <div class="form-floating mb-3">
@@ -82,7 +67,7 @@ $captcha = $req->fetchAll();
                     name="email"
                     class="form-control" 
                     id="floatingEmail"    
-                    placeholder="mail@emplemple.com" 
+                    placeholder="mail@exemple.com" 
                     required
                     value="<?= isset($_COOKIE['email']) ? $_COOKIE['email'] : '' ?>">
                     <label for="floatingPassword">E-mail</label>
