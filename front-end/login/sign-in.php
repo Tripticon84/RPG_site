@@ -65,7 +65,7 @@ $captcha = $req->fetchAll();
                 
                 echo '<span class="my-3 h4">' . $captcha[0]['question'] . '</span>';
                 
-                echo '<input type="hidden" name="captcha_id"' . 'value="' . $captcha['0']['id'] . '">';
+                echo '<input type="hidden" name="captcha_id"' . 'value="' . $captcha['0']['id_captcha'] . '">';
                 ?>
 
 
