@@ -1,6 +1,12 @@
 <?php
 
 function logPage($title) {
+
+        // Vérifier si le dossier logs existe, sinon le créer
+        $logDir = $_SERVER['DOCUMENT_ROOT'] . '/logs';
+        if (!is_dir($logDir)) {
+            mkdir($logDir);
+        }
         // Ouverture du fichier d'inscription
         $log = fopen($_SERVER['DOCUMENT_ROOT'] . '/logs/pages.txt', 'a+');
         // Création de la ligne à ajouter : jj/mm/AAAA - hh:mm:ss -  Tentative de connexion réussie/échouée de : {email}
