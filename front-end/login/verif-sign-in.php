@@ -5,7 +5,7 @@ function writeLogSignIn($success, $email) {
     // Ouverture du fichier d'inscription
     $log = fopen($_SERVER['DOCUMENT_ROOT'] . '\logs\sign-in.txt', 'a+');
     // Création de la ligne à ajouter : AAAA/mm/jj - hh:mm:ss -  Tentative de connexion réussie/échouée de : {email}
-    $line = getenv("REMOTE_ADDR") . ' - ' . date('d/m/Y - H:i:s') . ' - Tentative de connexion ' . ($success ? 'réussie ' : 'échoué ') . $email . "\n";
+    $line = "\n" . getenv("REMOTE_ADDR") . ' - ' . date('d/m/Y - H:i:s') . ' - Tentative de connexion ' . ($success ? 'réussie ' : 'échoué ') . $email;
 
     // Ajout de la ligne au fichier ouvert 
     fputs($log, $line);
@@ -53,7 +53,7 @@ if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 $id = $_POST['captcha_id'];
 
 // Écrire la requête SELECT à trous
-$q = 'SELECT id,reponse FROM captcha WHERE id = :id';
+$q = 'SELECT id_captcha,reponse FROM captcha WHERE id_captcha = :id';
 
 // Préparer la requête
 $req = $bdd->prepare($q);
@@ -65,8 +65,8 @@ $req->execute([
 
 // Récupérer les résultats dans un tableau $captcha
 $id = $req->fetchAll();
-// Si le captcha n'existe pas > redirection
 
+// Si le captcha n'existe pas > redirection
 if (empty($id)) {
     writeLogSignUp(false, $_POST['email']);
     header('location:sign-up.php' . '?' . 'message=Erreur lors de la validation du captcha.');
@@ -85,7 +85,7 @@ if ($id[0]['reponse'] != $_POST['captcha_reponse']) {
 // Si le compte utilisateur n'existe pas en db > redirection
 
 // Écrire la requête SELECT à trous
-$q = 'SELECT id FROM users WHERE email = :email AND password = :password';
+$q = 'SELECT id_uti FROM utilisateur WHERE email = :email AND password = :password';
 
 // Préparer la requête
 $req = $bdd->prepare($q);

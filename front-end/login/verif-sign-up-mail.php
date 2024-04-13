@@ -69,7 +69,7 @@ if ($email_verif[0]['code'] == $_POST['code']) {
 
 
     // Si on arrive ici c'est que tout les tests sont passés on peut modifier le status de l'utilisateur
-    $q = 'UPDATE users SET status = 1 WHERE email = :email';
+    $q = 'UPDATE utilisateur SET status = 1 WHERE email = :email';
     $req = $bdd->prepare($q);
     $req->execute([
         'email' => $_POST['email'],
@@ -77,7 +77,7 @@ if ($email_verif[0]['code'] == $_POST['code']) {
 
 
 
-    header('location:../index.php' . '?' . 'success=Compte vérifier avec succès.'); // FIXME: Renvoi vers la page les campagnes du joueur
+    header('location:../index.php' . '?' . 'success=Compte vérifier avec succès.'); // FIXME: Renvoi vers le profil de l'utilisateur
     exit;
 }
 

@@ -11,7 +11,7 @@ function newsletterList() {
     $bdd = PDOConnect();
 
     // Écrire la requête SELECT à trous
-    $q = 'SELECT id,email FROM newsletter';
+    $q = 'SELECT id_newsletter_list,email FROM newsletter_list';
 
     // Préparer la requête
     $req = $bdd->prepare($q);
@@ -30,14 +30,10 @@ function newsletterList() {
 function newsletterDelete($id) {
 
     // Connexion à la base de données
-    try {
-        $bdd = new PDO('mysql:host=localhost:8889;dbname=roll-of-odyssey', 'root', 'root');
-    } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
+    $bdd = PDOConnect();
 
     // Écrire la requête DELETE à trous
-    $q = 'DELETE FROM newsletter WHERE id = :id';
+    $q = 'DELETE FROM newsletter_list WHERE id_newsletter_list = :id';
 
     // Préparer la requête
     $req = $bdd->prepare($q);
@@ -55,7 +51,7 @@ function newsletterAdd($email) {
         $bdd = PDOConnect();
     
         // Écrire la requête INSERT à trous
-        $q = 'INSERT INTO newsletter (email) VALUES (:email)';
+        $q = 'INSERT INTO newsletter_list (email) VALUES (:email)';
     
         // Préparer la requête
         $req = $bdd->prepare($q);
@@ -93,7 +89,26 @@ if (isset($_GET['email']) && isset($_GET['action']) && $_GET['action'] == 'add')
 
 /* Newsletter */
 
-// Afficher toutes les newsletters
-function showNewsletter() {
-    
+function listAllNewsletter() {
+
+    // Connexion à la base de données
+    $bdd = PDOConnect();
+
+    // Écrire la requête SELECT à trous
+    $q = 'SELECT id_newsletter,date,objet,contenu,campagne1,campagne2,recurrence FROM newsletter';
+
+    // Préparer la requête
+    $req = $bdd->prepare($q);
+
+    // Exécuter la requête
+    $req->execute();
+
+    // Récupérer les résultats dans un tableau $newsletters
+    $listNewsletters = $req->fetchAll();
+    return $listNewsletters;
+}
+
+
+if (isset($_GET['action']) && $_GET['action'] == 'addNewsletter') {
+
 }

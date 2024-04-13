@@ -5,7 +5,7 @@ function captchaList() {
 
     $bdd = PDOConnect();
 
-    $q = 'SELECT id,question,reponse FROM captcha';
+    $q = 'SELECT id_captcha,question,reponse FROM captcha';
 
     $req = $bdd->prepare($q);
 
@@ -20,7 +20,7 @@ function captchaDelete($id) {
 
     $bdd = PDOConnect();
 
-    $q = 'DELETE FROM captcha WHERE id = :id';
+    $q = 'DELETE FROM captcha WHERE id_captcha = :id';
 
     $req = $bdd->prepare($q);
 
