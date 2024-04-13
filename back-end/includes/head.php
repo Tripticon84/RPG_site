@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/back-end/favicon.ico" type="image/x-icon">
     <title><?= 'RoF - Tableau de bord' . ' - ' . htmlspecialchars($title); ?></title>
     <!-- Bootstrap CSS v5.3.3 -->
     <link
@@ -13,8 +13,8 @@
         />
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/front-office/css/style.css">
-    <link rel="stylesheet" href="/front-office/css/dashboard.css">
+    <link rel="stylesheet" href="/back-end/css/style.css">
+    <link rel="stylesheet" href="/back-end/css/dashboard.css">
 
     <!-- Bootstrap icons -->
     <link
@@ -25,4 +25,5 @@
     <script
         src="/js/bootstrap.bundle.min.js"
     ></script>
+    <script src="/back-end/js/script.js"></script>
 </head>

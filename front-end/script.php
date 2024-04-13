@@ -4,7 +4,7 @@ function logPage($title) {
         // Ouverture du fichier d'inscription
         $log = fopen($_SERVER['DOCUMENT_ROOT'] . '\logs\pages.txt', 'a+');
         // Création de la ligne à ajouter : jj/mm/AAAA - hh:mm:ss -  Tentative de connexion réussie/échouée de : {email}
-        $line = getenv("REMOTE_ADDR") . ' - ' . date('d/m/Y - H:i:s') . ' - ' . 'Visite de ' . $title . ' par ' . (isset($_SESSION['email']) ? $_SESSION['email'] : 'Anonyme') . "\n";
+        $line = "\n" . getenv("REMOTE_ADDR") . ' - ' . date('d/m/Y - H:i:s') . ' - ' . ' - ' . $title . ' - ' . (isset($_SESSION['email']) ? $_SESSION['email'] : 'Anonyme');
     
         // Ajout de la ligne au fichier ouvert 
         fputs($log, $line);

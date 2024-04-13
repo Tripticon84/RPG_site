@@ -7,14 +7,14 @@
         >
 
         <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="sidebarMenuLabel">Roll of Oddyssey</h5>
+          <h5 class="offcanvas-title" id="sidebarMenuLabel">Roll of Odyssey</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu" aria-label="Close"></button>
         </div>
 
         <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-3 overflow-y-auto align-items-center">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link d-flex gap-3 fs-6" aria-current="page" href="/front-office/index.php">
+              <a class="nav-link d-flex gap-3 fs-6" aria-current="page" href="/back-end/index.php">
                 <i class="bi bi-sidebar bi-house-fill"></i>
                 Accueil
               </a>
@@ -30,25 +30,25 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex gap-3 fs-6" href="#">
+              <a class="nav-link d-flex gap-3 fs-6" href="/back-end/users/index.php">
                 <i class="bi bi-sidebar bi-person-gear"></i>
                 Utilisateurs
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex gap-3 fs-6" href="#">
+              <a class="nav-link d-flex gap-3 fs-6" href="/back-end/captcha/index.php">
                 <i class="bi bi-sidebar bi-lock"></i>
                 Captchas
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex gap-3 fs-6" href="/front-office/newsletter/newsletter.php">
+              <a class="nav-link d-flex gap-3 fs-6" href="/back-end/newsletter/index.php">
                 <i class="bi bi-sidebar bi-envelope"></i>
                 Newsletters
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link d-flex gap-3 fs-6" href="#">
+              <a class="nav-link d-flex gap-3 fs-6" href="/back-end/log/index.php">
                 <i class="bi bi-sidebar bi-file-text"></i>
                 Logs
               </a>

@@ -1,4 +1,6 @@
 <?php
+require_once '../script.php';
+
 
 /* Liste des email */
 
@@ -6,11 +8,7 @@
 function newsletterList() {
 
     // Connexion à la base de données
-    try {
-        $bdd = new PDO('mysql:host=localhost:8889;dbname=roll-of-odyssey', 'root', 'root');
-    } catch (Exception $e) {
-        die('Erreur : ' . $e->getMessage());
-    }
+    $bdd = PDOConnect();
 
     // Écrire la requête SELECT à trous
     $q = 'SELECT id,email FROM newsletter';
@@ -54,11 +52,7 @@ function newsletterDelete($id) {
 function newsletterAdd($email) {
     
         // Connexion à la base de données
-        try {
-            $bdd = new PDO('mysql:host=localhost:8889;dbname=roll-of-odyssey', 'root', 'root');
-        } catch (Exception $e) {
-            die('Erreur : ' . $e->getMessage());
-        }
+        $bdd = PDOConnect();
     
         // Écrire la requête INSERT à trous
         $q = 'INSERT INTO newsletter (email) VALUES (:email)';
@@ -76,7 +70,7 @@ function newsletterAdd($email) {
  // Si l'action est 'delete' et que l'id est défini > supprimer l'email de la newsletter
 if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id'])) {
     newsletterDelete($_GET['id']);
-    header('location:newsletter.php');
+    header('location:index.php');
     exit;
 }
 
@@ -87,13 +81,13 @@ if (isset($_GET['email']) && isset($_GET['action']) && $_GET['action'] == 'add')
     // Vérifier si l'email n’existe pas déjà dans la newsletter
     foreach (newsletterList() as $newsletter) {
         if ($newsletter['email'] == $_GET['email']) {
-            header('location:newsletter.php?message=Cet email est déjà inscrit à la newsletter.');
+            header('location:index.php?message=Cet email est déjà inscrit à la newsletter.');
             exit;
         }
     }
 
     newsletterAdd($_GET['email']);
-    header('location:newsletter.php');
+    header('location:index.php');
     exit;
 }
 

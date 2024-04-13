@@ -1,8 +1,7 @@
 <?php $title = 'Newsletter';
 include('../includes/head.php');
 require 'newsletter_script.php'; 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/script.php'; ?>
-
+require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
 
 <body>
     <? include('../includes/header.php'); ?>
@@ -15,7 +14,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/script.php'; ?>
                         <!-- Création d'une newsletter -->
                         
                     </div>
-                    <div class="col-6 offset-1">
+                    <div class="-++1">
                         <?php 
                             if (isset($_GET['message']) && !empty($_GET['message'])) {
                                 alertWarning('Erreur', $_GET['message']);
