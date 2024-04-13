@@ -13,7 +13,7 @@ if (empty($_POST['code'])) {
 // Vérifier si le code est valide
 
 // Écrire la requête SELECT à trous
-$q = 'SELECT email,code,expiration FROM email_verif WHERE email = :email AND code = :code';
+$q = 'SELECT email,code,expiration FROM EMAIL_VERIF WHERE email = :email AND code = :code';
 
 // Préparer la requête
 $req = $bdd->prepare($q);
@@ -52,7 +52,7 @@ if ($email_verif[0]['email'] != $_POST['email']) {
 if ($email_verif[0]['code'] == $_POST['code']) {
 
     // Supprimer le code de la base de données
-    $q = 'DELETE FROM email_verif WHERE email = :email AND code = :code';
+    $q = 'DELETE FROM EMAIL_VERIF WHERE email = :email AND code = :code';
     $req = $bdd->prepare($q);
     $req->execute([
         'email' => $_POST['email'],
@@ -60,7 +60,7 @@ if ($email_verif[0]['code'] == $_POST['code']) {
     ]);
 
     // Supprime tout les autres codes avec une date de d'expiration inférieur à la date actuelle
-    $q = 'DELETE FROM email_verif WHERE expiration < :date';
+    $q = 'DELETE FROM EMAIL_VERIF WHERE expiration < :date';
     $req = $bdd->prepare($q);
     $req->execute([
         'date' => time(),
@@ -69,7 +69,7 @@ if ($email_verif[0]['code'] == $_POST['code']) {
 
 
     // Si on arrive ici c'est que tout les tests sont passés on peut modifier le status de l'utilisateur
-    $q = 'UPDATE utilisateur SET status = 1 WHERE email = :email';
+    $q = 'UPDATE UTILISATEUR SET status = 1 WHERE email = :email';
     $req = $bdd->prepare($q);
     $req->execute([
         'email' => $_POST['email'],

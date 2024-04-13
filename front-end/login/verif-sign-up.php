@@ -109,7 +109,7 @@ if ($_POST['password'] != $_POST['password_confirm']) {
 $id = $_POST['captcha_id'];
 
 // Écrire la requête SELECT à trous
-$q = 'SELECT id_captcha,reponse FROM captcha WHERE id_captcha = :id';
+$q = 'SELECT id_captcha,reponse FROM CAPTCHA WHERE id_captcha = :id';
 
 // Préparer la requête
 $req = $bdd->prepare($q);
@@ -144,7 +144,7 @@ if ($id[0]['reponse'] != $_POST['captcha_reponse']) {
 
 
 // Écrire la requête SELECT à trous
-$q = 'SELECT id_uti,email,pseudo FROM utilisateur WHERE email = :email OR pseudo = :pseudo';
+$q = 'SELECT id_uti,email,pseudo FROM UTILISATEUR WHERE email = :email OR pseudo = :pseudo';
 
 // Préparer la requête
 $req = $bdd->prepare($q);
@@ -189,7 +189,7 @@ if (!empty($results) && $results[0]['email'] == $_POST['email']) {
 
 
 // Écrire la requête INSERT INTO à trous
-$q = 'INSERT INTO utilisateur (pseudo, email, password, prenom, nom) VALUES (:pseudo, :email, :password, :prenom, :nom)';
+$q = 'INSERT INTO UTILISATEUR (pseudo, email, password, prenom, nom) VALUES (:pseudo, :email, :password, :prenom, :nom)';
 
 // Préparation de la requête
 $req = $bdd->prepare($q);
@@ -218,7 +218,7 @@ if (!$result) {
 // Inscription de l'email à la newsletter
 if (isset($_POST['newsletter'])) {
     // Écrire la requête INSERT INTO à trous
-    $q = 'INSERT INTO newsletter_list (email) VALUES (:email)';
+    $q = 'INSERT INTO NEWSLETTER_LIST (email) VALUES (:email)';
     // Préparation de la requête
     $req = $bdd->prepare($q);
     // Exécution de la requête
@@ -237,7 +237,7 @@ $code = bin2hex(random_bytes(3));
 
 
 // Écrire la requête INSERT INTO à trous
-$q = 'INSERT INTO email_verif (email, code, expiration) VALUES (:email, :code, :expiration)';
+$q = 'INSERT INTO EMAIL_VERIF (email, code, expiration) VALUES (:email, :code, :expiration)';
 // Préparation de la requête
 $req = $bdd->prepare($q);
 // Exécution de la requête

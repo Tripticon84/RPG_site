@@ -11,7 +11,7 @@ function newsletterList() {
     $bdd = PDOConnect();
 
     // Écrire la requête SELECT à trous
-    $q = 'SELECT id_newsletter_list,email FROM newsletter_list';
+    $q = 'SELECT id_newsletter_list,email FROM NEWSLETTER_LIST';
 
     // Préparer la requête
     $req = $bdd->prepare($q);
@@ -33,7 +33,7 @@ function newsletterDelete($id) {
     $bdd = PDOConnect();
 
     // Écrire la requête DELETE à trous
-    $q = 'DELETE FROM newsletter_list WHERE id_newsletter_list = :id';
+    $q = 'DELETE FROM NEWSLETTER_LIST WHERE id_newsletter_list = :id';
 
     // Préparer la requête
     $req = $bdd->prepare($q);
@@ -51,7 +51,7 @@ function newsletterAdd($email) {
         $bdd = PDOConnect();
     
         // Écrire la requête INSERT à trous
-        $q = 'INSERT INTO newsletter_list (email) VALUES (:email)';
+        $q = 'INSERT INTO NEWSLETTER_LIST (email) VALUES (:email)';
     
         // Préparer la requête
         $req = $bdd->prepare($q);
@@ -95,7 +95,7 @@ function listAllNewsletter() {
     $bdd = PDOConnect();
 
     // Écrire la requête SELECT à trous
-    $q = 'SELECT id_newsletter,date,objet,contenu,campagne1,campagne2,recurrence FROM newsletter';
+    $q = 'SELECT id_newsletter,date,objet,contenu,campagne1,campagne2,recurrence FROM NEWSLETTER';
 
     // Préparer la requête
     $req = $bdd->prepare($q);

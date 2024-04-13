@@ -5,7 +5,7 @@ function captchaList() {
 
     $bdd = PDOConnect();
 
-    $q = 'SELECT id_captcha,question,reponse FROM captcha';
+    $q = 'SELECT id_captcha,question,reponse FROM CAPTCHA';
 
     $req = $bdd->prepare($q);
 
@@ -20,7 +20,7 @@ function captchaDelete($id) {
 
     $bdd = PDOConnect();
 
-    $q = 'DELETE FROM captcha WHERE id_captcha = :id';
+    $q = 'DELETE FROM CAPTCHA WHERE id_captcha = :id';
 
     $req = $bdd->prepare($q);
 
@@ -33,7 +33,7 @@ function captchaAdd($question, $reponse) {
 
     $bdd = PDOConnect();
 
-    $q = 'INSERT INTO captcha (question, reponse) VALUES (:question, :reponse)';
+    $q = 'INSERT INTO CAPTCHA (question, reponse) VALUES (:question, :reponse)';
 
     $req = $bdd->prepare($q);
 

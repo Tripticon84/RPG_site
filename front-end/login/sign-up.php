@@ -17,7 +17,7 @@ include_once('../includes/message.php'); ?>
     $bdd = PDOConnect();
     
     // Écrire la requête SELECT à trous
-    $q = 'SELECT id_captcha,question FROM captcha ORDER BY RAND() LIMIT 1;';
+    $q = 'SELECT id_captcha,question FROM CAPTCHA ORDER BY RAND() LIMIT 1;';
     
     // Préparer la requête
     $req = $bdd->prepare($q);

@@ -6,7 +6,7 @@ function usersList()
 
     $bdd = PDOConnect();
 
-    $q = 'SELECT id_uti,pseudo,email,nom,prenom,status FROM utilisateur ORDER BY id_uti ASC';
+    $q = 'SELECT id_uti,pseudo,email,nom,prenom,status FROM UTILISATEUR ORDER BY id_uti ASC';
 
     $req = $bdd->prepare($q);
 
@@ -22,7 +22,7 @@ function usersDelete($id)
 
     $bdd = PDOConnect();
 
-    $q = 'DELETE FROM captcha WHERE id_captcha = :id';
+    $q = 'DELETE FROM CAPTCHA WHERE id_captcha = :id';
 
     $req = $bdd->prepare($q);
 
@@ -36,7 +36,7 @@ function usersAdd($pseudo, $email, $password, $nom, $prenom, $status)
 
     $bdd = PDOConnect();
 
-    $q = 'INSERT INTO utilisateur (pseudo, email, password, nom, prenom, status) VALUES (:pseudo, :email, :password, :nom, :prenom, :status)';
+    $q = 'INSERT INTO UTILISATEUR (pseudo, email, password, nom, prenom, status) VALUES (:pseudo, :email, :password, :nom, :prenom, :status)';
 
     $req = $bdd->prepare($q);
 

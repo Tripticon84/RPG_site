@@ -53,7 +53,7 @@ if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
 $id = $_POST['captcha_id'];
 
 // Écrire la requête SELECT à trous
-$q = 'SELECT id_captcha,reponse FROM captcha WHERE id_captcha = :id';
+$q = 'SELECT id_captcha,reponse FROM CAPTCHA WHERE id_captcha = :id';
 
 // Préparer la requête
 $req = $bdd->prepare($q);
@@ -85,7 +85,7 @@ if ($id[0]['reponse'] != $_POST['captcha_reponse']) {
 // Si le compte utilisateur n'existe pas en db > redirection
 
 // Écrire la requête SELECT à trous
-$q = 'SELECT id_uti FROM utilisateur WHERE email = :email AND password = :password';
+$q = 'SELECT id_uti FROM UTILISATEUR WHERE email = :email AND password = :password';
 
 // Préparer la requête
 $req = $bdd->prepare($q);
