@@ -45,10 +45,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
                             <?php
                             foreach (captchaList() as $captcha) {
                                 echo '<tr>';
-                                echo '<td>' . $captcha['id'] . '</td>';
+                                echo '<td>' . $captcha['id_captcha'] . '</td>';
                                 echo '<td>' . $captcha['question'] . '</td>';
                                 echo '<td>' . $captcha['reponse'] . '</td>';
-                                echo '<td><a href="captcha_script.php?id=' . $captcha['id'] . '&action=delete' . '" class="bi bi-trash"></a></td>';
+                                echo '<td><a href="captcha_script.php?id=' . $captcha['id_captcha'] . '&action=delete' . '" class="bi bi-trash"></a></td>';
                                 echo '</tr>';
                             }
                             ?>

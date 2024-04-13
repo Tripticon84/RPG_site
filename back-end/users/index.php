@@ -56,7 +56,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
                             <?php
                             foreach (usersList() as $users) {
                                 echo '<tr>';
-                                echo '<td>' . $users['id'] . '</td>';
+                                echo '<td>' . $users['id_uti'] . '</td>';
                                 echo '<td>' . $users['pseudo'] . '</td>';
                                 echo '<td>' . $users['email'] . '</td>';
                                 echo '<td>' . $users['nom'] . '</td>';
@@ -65,7 +65,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
                                     echo '<td>Admin</td>';
                                 else
                                     echo '<td>Utilisateur</td>';
-                                echo '<td><a href="users_script.php?id=' . $users['id'] . '&action=delete' . '" class="bi bi-trash"></a></td>';
+                                echo '<td><a href="users_script.php?id=' . $users['id_uti'] . '&action=delete' . '" class="bi bi-trash"></a></td>';
                                 echo '</tr>';
                             }
                             ?>

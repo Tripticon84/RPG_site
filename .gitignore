@@ -1,6 +1,7 @@
 # Ignorer les fichiers et dossiers générés par l'environnement de développement
 .vscode/
 node_modules/
+scss/
 
 # Ignorer les fichiers de build
 build/

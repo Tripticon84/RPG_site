@@ -249,7 +249,7 @@ $req->execute([
 
 // Envoi de l'email
 
-require '../script.php';
+require_once '../script.php';
 
 sendMail($_POST['email'], 'Confirmation de votre inscription', 'Bonjour, voici votre code de vérification : ' . $code);
 

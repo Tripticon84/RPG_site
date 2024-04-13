@@ -10,11 +10,43 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
             <? include('../includes/sidebar.php'); ?>
             <main class="col-md-9 ms-sm-auto col-lg-10">
                 <div class="row g-3 m-2">
-                    <div class="col-5 bg-danger">
+                    <div class="col-12 bg-body-tertiary col-xl-5">
                         <!-- Création d'une newsletter -->
-                        
+                        <!-- <h2 class="my-3">Créer une newsletter</h2>
+                        <form action="newsletter_script.php" method="get">
+                            <label for="objet">Objet de la Newsletter</label>
+                            <input type="text" name="" class="form-control mb-3" placeholder="Objet">
+                            <label for="corps">Corps de la Newsletter</label>
+                            <input type="text" name="" class="form-control mb-3" placeholder="Corps">
+                            <label for="recurence">Récurrence (en jours)</label>
+                            <input type="number" name="recurence" class="form-control mb-3" placeholder="Récurrence">
+                            <input type="hidden" name="action" value="addNewsletter">
+                            <input type="submit" value="Créer la newsletter" class="btn btn-primary my-3">
+                        </form> -->
+
+
+                        <!-- Liste des newsletters -->
+                        <table class="table">
+                            <tr>
+                                <th>Objet</th>
+                                <th>Corps</th>
+                                <th>Contenu</th>
+                                <th>Actions</th>
+                            </tr>
+
+                            <?php
+                            // foreach (listAllNewsletter() as $newsletter) {
+                            //     echo '<tr>';
+                            //     echo '<td>' . $newsletter['objet'] . '</td>';
+                            //     echo '<td>' . $newsletter['contenu'] . '</td>';
+                            //     echo '<td>' . $newsletter['recurrence'] . '</td>';
+                            //     echo '<td><a href="newsletter_script.php?id=' . $newsletter['id'] . '&action=delete' . '" class="bi bi-trash"></a></td>';
+                            //     echo '</tr>';
+                            // }
+                            ?>
+                        </table>
                     </div>
-                    <div class="-++1">
+                    <div class="col-12 col-xl-6 offset-1">
                         <?php 
                             if (isset($_GET['message']) && !empty($_GET['message'])) {
                                 alertWarning('Erreur', $_GET['message']);
@@ -37,7 +69,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
                             foreach (newsletterList() as $newsletter) {
                                 echo '<tr>';
                                 echo '<td>' . $newsletter['email'] . '</td>';
-                                echo '<td><a href="newsletter_script.php?id=' . $newsletter['id'] . '&action=delete' . '" class="bi bi-trash"></a></td>';
+                                echo '<td><a href="newsletter_script.php?id=' . $newsletter['id_newsletter_list'] . '&action=delete' . '" class="bi bi-trash"></a></td>';
                                 echo '</tr>';
                             }
                             ?>
