@@ -2,7 +2,7 @@
 
 function logPage($title) {
         // Ouverture du fichier d'inscription
-        $log = fopen($_SERVER['DOCUMENT_ROOT'] . '\logs\pages.txt', 'a+');
+        $log = fopen($_SERVER['DOCUMENT_ROOT'] . '/logs/pages.txt', 'a+');
         // Création de la ligne à ajouter : jj/mm/AAAA - hh:mm:ss -  Tentative de connexion réussie/échouée de : {email}
         $line = "\n" . getenv("REMOTE_ADDR") . ' - ' . date('d/m/Y - H:i:s') . ' - ' . $title . ' - ' . (isset($_SESSION['email']) ? $_SESSION['email'] : 'Anonyme');
     
@@ -17,7 +17,7 @@ function PDOConnect() {
 
     require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
-    $attr = DB_HOST == 'localhost' ? [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION] : [];
+    // $attr = DB_HOST == 'localhost' ? [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION] : [];
     try {
          $bdd = new PDO('mysql:host=' . DB_HOST . ':' . DB_PORT . ';dbname=' . DB_NAME, DB_USER, DB_PASS);
         // $bdd = new PDO('mysql:host=localhost:8889;dbname=roll-of-odyssey', 'root', 'root', [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]);
@@ -37,7 +37,7 @@ function sendMail($email, $subject, $message)
     require $_SERVER['DOCUMENT_ROOT'] . '/PHPMailer/Exception.php';
     require $_SERVER['DOCUMENT_ROOT'] . '/PHPMailer/PHPMailer.php';
     require $_SERVER['DOCUMENT_ROOT'] . '/PHPMailer/SMTP.php';
-    require $_SERVER['DOCUMENT_ROOT'] . '/PHPMailer/config.php';
+    require $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
     $mail = new PHPMailer(true);
 

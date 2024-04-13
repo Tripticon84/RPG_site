@@ -3,18 +3,18 @@ include('../includes/head.php');
 require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
 
 <body>
-    <? include_once('../includes/header.php'); ?>
+    <?php include_once('../includes/header.php'); ?>
 
     <div class="container-fluid">
         <div class="row">
-            <? include('../includes/sidebar.php'); ?>
+            <?php include('../includes/sidebar.php'); ?>
             <main class="col-md-9 ms-sm-auto col-lg-10">
                 <div class="row g-3 m-2">
                     <div class="col bg-body-tertiary">
 
                         <h2 class="my-3">Afficher les logs</h2>
 
-                        <?
+                        <?php
                         if (isset($_GET['message']) && !empty($_GET['message'])) {
                             alertWarning('Erreur', $_GET['message']);
                         }
@@ -42,7 +42,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
                                 <th>Page</th>
                                 <th>De</th>
                             </tr>
-                            <?
+                            <?php
                             // foreach (processLogFile($file) as $log) {
                             //     echo '<tr>';
                             //     echo '<td>' . ($log[0] ?? '') . '</td>';

@@ -4,11 +4,11 @@ require_once 'captcha_script.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
 
 <body>
-    <? include_once('../includes/header.php'); ?>
+    <?php include_once('../includes/header.php'); ?>
 
     <div class="container-fluid">
         <div class="row">
-            <? include('../includes/sidebar.php'); ?>
+            <?php include('../includes/sidebar.php'); ?>
             <main class="col-md-9 ms-sm-auto col-lg-10">
                 <div class="row g-3 m-2">
                     <div class="col-5 bg-body-tertiary">
