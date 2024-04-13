@@ -43,7 +43,7 @@ function sendMail($email, $subject, $message)
     require $_SERVER['DOCUMENT_ROOT'] . '/PHPMailer/Exception.php';
     require $_SERVER['DOCUMENT_ROOT'] . '/PHPMailer/PHPMailer.php';
     require $_SERVER['DOCUMENT_ROOT'] . '/PHPMailer/SMTP.php';
-    require $_SERVER['DOCUMENT_ROOT'] . '/config.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
 
     $mail = new PHPMailer(true);
 

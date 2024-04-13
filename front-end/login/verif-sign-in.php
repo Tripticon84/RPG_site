@@ -3,7 +3,7 @@
 function writeLogSignIn($success, $email) {
 
     // Ouverture du fichier d'inscription
-    $log = fopen($_SERVER['DOCUMENT_ROOT'] . '\logs\sign-in.txt', 'a+');
+    $log = fopen($_SERVER['DOCUMENT_ROOT'] . '/logs/sign-in.txt', 'a+');
     // Création de la ligne à ajouter : AAAA/mm/jj - hh:mm:ss -  Tentative de connexion réussie/échouée de : {email}
     $line = "\n" . getenv("REMOTE_ADDR") . ' - ' . date('d/m/Y - H:i:s') . ' - Tentative de connexion ' . ($success ? 'réussie ' : 'échoué ') . $email;
 
