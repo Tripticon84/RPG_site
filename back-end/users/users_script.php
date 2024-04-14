@@ -22,7 +22,7 @@ function usersDelete($id)
 
     $bdd = PDOConnect();
 
-    $q = 'DELETE FROM CAPTCHA WHERE id_captcha = :id';
+    $q = 'DELETE FROM UTILISATEUR WHERE id_uti = :id';
 
     $req = $bdd->prepare($q);
 
@@ -39,6 +39,8 @@ function usersAdd($pseudo, $email, $password, $nom, $prenom, $status)
     $q = 'INSERT INTO UTILISATEUR (pseudo, email, password, nom, prenom, status) VALUES (:pseudo, :email, :password, :nom, :prenom, :status)';
 
     $req = $bdd->prepare($q);
+
+    // TODO: Salage du mot de passe
 
     $req->execute([
         'pseudo' => $pseudo,
