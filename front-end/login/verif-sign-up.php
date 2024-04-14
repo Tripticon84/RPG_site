@@ -1,25 +1,25 @@
 <?php
 
-    // Connexion à la BDD
-    require_once '../script.php';
-    $bdd = PDOConnect();
-
 // Fichier de vérification d'inscription
 
 function writeLogSignUp($success, $email)
 {
-
+    
     // Ouverture du fichier d'inscription
     $log = fopen($_SERVER['DOCUMENT_ROOT'] . '/logs/sign-up.txt', 'a+');
     // Création de la ligne à ajouter : AAAA/mm/jj - hh:mm:ss -  Tentative de connexion réussie/échouée de : {email}
-    $line = "\n" . getenv("REMOTE_ADDR") . ' - ' . date('d/m/Y - H:i:s') . ' - Tentative d\'inscription ' . ($success ? 'réussie ' : 'échoué ') . $email;
-
+    $line = getenv("REMOTE_ADDR") . ' - ' . date('d/m/Y - H:i:s') . ' - Tentative d\'inscription ' . ($success ? 'réussie ' : 'échoué ') . $email . "\n";
+    
     // Ajout de la ligne au fichier ouvert 
     fputs($log, $line);
-
+    
     // Fermeture du fichier ouvert
     fclose($log);
 }
+
+    // Connexion à la BDD
+    require_once '../script.php';
+    $bdd = PDOConnect();
 
 // Si un paramètre email à été envoyé via la méthode post et qu'il n'est pas vide > créer un cookie 'email' qui expire dans 30j
 if (isset($_POST['email']) && !empty($_POST['email'])) {
