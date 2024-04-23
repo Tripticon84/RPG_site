@@ -120,6 +120,7 @@ session_start();
 
 // Ajout de l'email à la session
 $_SESSION['email'] = $_POST['email'];
+$_SESSION['id'] = $results['id_uti'];
 
 writeLogSignIn(true, $_POST['email']);
 

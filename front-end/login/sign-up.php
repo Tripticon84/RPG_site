@@ -40,7 +40,7 @@ $captcha = $req->fetchAll();
 
     <main>
             <form 
-                class="d-flex flex-column my-4 mx-auto bg-secondary bg-opacity-75 p-3 rounded-4 login-window"
+                class="d-flex flex-column my-4 mx-auto bg-body-tertiary bg-opacity-75 p-3 rounded-4 login-window"
                 action="verif-sign-up.php"
                 method="post">
                 <h2 class="text-center my-3">S'inscrire</h2>

@@ -70,7 +70,7 @@
           
             
             <li class="nav-item">
-              <a class="nav-link d-flex gap-3 fs-6" href="#">
+              <a class="nav-link d-flex gap-3 fs-6" href="/back-end/login/logout.php">
                 <i class="bi bi-sidebar bi-door-closed-fill"></i>
                 Se déconnecter
               </a>

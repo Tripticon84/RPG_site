@@ -253,9 +253,13 @@ require_once '../script.php';
 
 sendMail($_POST['email'], 'Confirmation de votre inscription', 'Bonjour, voici votre code de vérification : ' . $code);
 
+
+
+
 session_start();
 
 $_SESSION['email'] = $_POST['email'];
+$_SESSION['id_uti'] = 
 
 
 

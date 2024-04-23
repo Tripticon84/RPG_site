@@ -34,7 +34,7 @@ $captcha = $req->fetchAll();
     <main>
    
             <form 
-                class="d-flex flex-column my-4 mx-auto bg-secondary bg-opacity-75 p-3 rounded-4 login-window"
+                class="d-flex flex-column my-4 mx-auto bg-body-tertiary bg-opacity-75 p-3 rounded-4 login-window"
                 action="verif-sign-in.php"
                 method="post">
                 <h2 class=" text-center my-3">Connexion</h2>
@@ -57,7 +57,6 @@ $captcha = $req->fetchAll();
                     <label for="floatingPassword">Mot de passe</label>
                 </div>
 
-                <a href="#" class="text-decoration-none align-self-end p-1 m-3">Mot de passe oublié ?</a>
                 <hr>
 
                 <h2 class="my-3 text-center">Captcha de vérification</h2>

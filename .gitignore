@@ -19,3 +19,9 @@ logs/
 # Fichiers de configuration
 PHPMailer/config.php
 config.php
+
+# Fichiers images
+# image/
+# !image/users/default-64px.png
+# !image/users/default-128px.png
+# !image/users/default-1024px.png

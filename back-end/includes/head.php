@@ -1,3 +1,8 @@
+<?php
+session_start();
+if (!isset($_SESSION['user']) && $title !== 'Connexion')
+    header('location: /back-end/login/index.php');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
