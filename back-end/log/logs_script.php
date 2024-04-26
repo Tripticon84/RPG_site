@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+if (!isset($_SESSION['user']) && $title !== 'Connexion')
+    header('location: /back-end/login/index.php');
+
 require_once '../script.php';
 
 header('Content-Type: application/json');
