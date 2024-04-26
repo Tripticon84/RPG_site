@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 function writeLogSignIn($success, $email) {
 
@@ -85,7 +86,7 @@ if ($id[0]['reponse'] != $_POST['captcha_reponse']) {
 // Si le compte utilisateur n'existe pas en db > redirection
 
 // Écrire la requête SELECT à trous
-$q = 'SELECT id_uti FROM UTILISATEUR WHERE email = :email AND password = :password';
+$q = 'SELECT id_uti,pseudo FROM UTILISATEUR WHERE email = :email AND password = :password';
 
 // Préparer la requête
 $req = $bdd->prepare($q);
@@ -102,7 +103,7 @@ $req->execute([
 ]);
 
 // Récupérer les résultats dans un tableau $results
-$results = $req->fetchAll();
+$results = $req->fetchAll(PDO::FETCH_ASSOC);
 
 // Si $results est vide > redirection
 if (empty($results)) {
@@ -116,11 +117,15 @@ if (empty($results)) {
 // Connectons l'utilisateur
 
 // Création d'une session
-session_start();
 
-// Ajout de l'email à la session
+
+// Ajout de l'email, pseudo , id à la session
 $_SESSION['email'] = $_POST['email'];
-$_SESSION['id'] = $results['id_uti'];
+
+
+$_SESSION['pseudo'] = $results[0]['pseudo'];
+$_SESSION['id_uti'] = $results[0]['id_uti'];
+
 
 writeLogSignIn(true, $_POST['email']);
 
