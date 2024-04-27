@@ -66,7 +66,7 @@ if (isset($_SESSION['email'])) {
             </div>
             
 
-          <?  } else { ?>
+          <?php  } else { ?>
             <ul class="navbar-nav">
               <li class="nav-item mx-2">
                 <a id="sign-up" class="btn btn-primary fw-bold" href="/front-end/login/sign-up.php" role="button">S'inscrire</a>
