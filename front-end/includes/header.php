@@ -11,27 +11,20 @@ if (isset($_SESSION['email'])) {
   $user = $req->fetch(PDO::FETCH_ASSOC);
 }
 ?>
+<head>
+  <link rel="stylesheet" href="/front-end/css/header.css">
+  <script src="/front-end/js/header.js"></script>
+
 <header class="bg-body-tertiary">
   <nav class="navbar navbar-expand-sm bg-body-tertiary sticky-top border-bottom border-1 border-black">
-    <div class="container-fluid flex-sm-wrap">
+    <div class="container-fluid justify-content-between text-nowrap flex-sm-wrap"">
+      <div class="d-flex align-items-center flex-sm-wrap">
       <a href="#" class="navbar-brand">
         <img src="/front-end/img/logo256px.png" alt="logo" height="150px">
         <span class="text-decoration-none m-1 fw-bold d-none d-sm-inline">Roll of Odyssey</span>
       </a>
-      <!-- Bouton extend -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
       <!-- NavBar / OffCanvas -->
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Roll of Odyssey</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
-        </div>
-
-        <div class="offcanvas-body justify-content-between text-nowrap flex-sm-wrap">
           <ul class="navbar-nav">
             <li class="nav-item ">
               <a class="nav-link" aria-current="page" href="/front-end/index.php">Accueil</a>
@@ -52,25 +45,26 @@ if (isset($_SESSION['email'])) {
               <a href="#" class="nav-link">À propos</a>
             </li>
           </ul>
-
+      </div>
+      <div>
           <!-- Boutons login -->
           <?php
           if (isset($_SESSION['email'])) { ?>
 
-            <div class="dropdown text-start">
-              <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle me-5" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="dropdown">
+              <a href="#" class="d-block text-decoration-none me-5 dropbtn dropdown-toggle" onclick="dropdown()">
                 <img src="/image/users/<?= $user['avatar'] == NULL ? 'default' : $user['avatar'] ?>-64px.png" alt="mdo" width="32" height="32" class="rounded-circle">
               </a>
-              <ul class="dropdown-menu text-small" style="" data-popper-placement="bottom-start">
-                <li><a class="dropdown-item" href="#">New project...</a></li>
-                <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
+              <ul class="dropdown-content rounded-3 m-0" id="dropdownHeader">
+                <li><a class="dropdown-item bi bi-person" href="#"> Profil</a></li>
+                <li><a class="dropdown-item bi bi-map" href="#"> Mes campagnes</a></li>
+                <li><a class="dropdown-item bi bi-gear" href="#"> Paramètres</a></li>
+                <li><a class="dropdown-item" href="#">  XX</a></li>
+                <hr class="my-1">
+                <li><a class="dropdown-item bi bi-door-open" href="/front-end/login/sign-out.php">  Déconnexion</a></li>
               </ul>
             </div>
+            
 
           <?  } else { ?>
             <ul class="navbar-nav">
