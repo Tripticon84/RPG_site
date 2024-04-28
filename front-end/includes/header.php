@@ -64,11 +64,11 @@ if (isset($_SESSION['email'])) {
               <ul class="dropdown-menu text-small" style="" data-popper-placement="bottom-start">
                 <li><a class="dropdown-item" href="#">New project...</a></li>
                 <li><a class="dropdown-item" href="#">Settings</a></li>
-                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><a class="dropdown-item" href="profil.php">Profile</a></li>
                 <li>
                   <hr class="dropdown-divider">
                 </li>
-                <li><a class="dropdown-item" href="#">Sign out</a></li>
+                <li><a class="dropdown-item" href="login/logout.php">Sign out</a></li>
               </ul>
             </div>
 

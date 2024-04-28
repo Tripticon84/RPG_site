@@ -42,45 +42,46 @@ if(isset($_POST['enregistrer'])) {
 */?>
 
 
+
+
+
+<?php $title = 'Profil privé';
+include('script.php');
+include('includes/head.php'); 
+include('includes/header.php');  
+
+$log = logPage($title);  // déclenche la fonction logPage ?>
+
 <?php 
 
-include('script.php');
 $db = PDOConnect();
 
-$req = $db->prepare('SELECT pseudo, email, nom , prenom FROM utilisateur'); //requete récuparéant les infos users incompléte , pour la compléter : 
+$req = $db->prepare('SELECT pseudo, email, nom , prenom FROM utilisateur WHERE id_uti = :id'); //requete récuparéant les infos users incompléte , pour la compléter : 
 
 //$stmt = $db->prepare("SELECT pseudo FROM users WHERE email = :email"); :email sert a utiliser le current email dans la session
 // $stmt->bindParam(':email', $email); // Liaison du paramètre nommé à la valeur de l'email de session   
 
-$req->execute(); //exécution de la requête 
-$userData = $req->fetch(PDO::FETCH_ASSOC);//récupération dans un tableau 
+$req->execute([
+  'id' =>  $_SESSION['id_uti']
+]); //exécution de la requête
 
-$pseudo = $userData['pseudo']; //attribution des valeurs du tableau une a une a des varaiables 
-$email = $userData['email'];
+
+$userData = $req->fetch(PDO::FETCH_ASSOC);//récupération dans un tableau  
 $nom = $userData['nom'];
 $prenom = $userData['prenom'];
 
+$pseudo = $_SESSION['pseudo'];
+$email = $_SESSION['email'];
 
 
- 
 ?>
 
-
-<?php $title = 'Profil';
-include('includes/head.php'); 
-$log = logPage($title);  // déclenche la fonction logPage ?>
 
 <body>
 <script  src="js/bootstrap.bundle.min.js"></script>
 <script  src="js/profil.js"></script>
 
-<?php include('includes/header.php'); ?> 
     <main class="mt-5">
-
-   <!-- inclusion de bootstrap manuel-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-   <!-- inclusion de bootstrap manuel-->
        
     <!-- Bouton vers l'acceuil   -->
         <div class="container">
@@ -91,7 +92,7 @@ $log = logPage($title);  // déclenche la fonction logPage ?>
             </div>
         </div>
     
-        <!-- Bouton vers le profil privé  -->
+        <!-- Bouton vers le profil publique  -->
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-right mt-3">
@@ -140,18 +141,21 @@ $log = logPage($title);  // déclenche la fonction logPage ?>
             <div class="col-md-6">
               <div class="form-group">
                 <label for="mdp">Ancien mot de passe:</label>
-                <input type="password" class="form-control" id="mdp" name="ancien_mdp">
+                <input type="password" class="form-control" id="mdp" name="ancientpassword">
               </div>
               <div class="form-group">
                 <label for="newmdp">Nouveau mot de passe :</label>
-                <input type="password" class="form-control" id="newmdp" name="nouveau_mdp">
+                <input type="password" class="form-control" id="newmdp" name="newpassword">
               </div>
               <div class="form-group">
                 <label for="newmdp_confirm">Confirmer le nouveau mot de passe :</label>
-                <input type="password" class="form-control" id="newmdp_confirm" name="nouveau_mdp_confirm">
+                <input type="password" class="form-control" id="newmdp_confirm" name="verifypassword">
                 <!-- Bouton en dessous des trois champs à droite -->
                 <button type="submit" id="enregistrer"  class="btn btn-primary mt-2">Enregistrer</button>
               </div>
+              <button type="submit" id="enregistrer"  class="btn btn-primary mt-2">Export des infos utilisateurs</button>
+              <button type="submit" id="enregistrer"  class="btn btn-primary mt-2">Supprimer mon compte</button>
+
             </div>
           </div>
 
@@ -167,7 +171,7 @@ $log = logPage($title);  // déclenche la fonction logPage ?>
 
 
 <!-- Troisième section -->
-
+<?php /* partie du formulaire qu'on hésite a retirer -> retirer les balises ici et en bas pour voir cette partie
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
@@ -231,10 +235,11 @@ $log = logPage($title);  // déclenche la fonction logPage ?>
   </div>
 </div>
 
+*/
+?>
 
-
-
-    <?php include('./includes/footer.php');?>
+<?php include('includes/footer.php');?>
 </body>
 
 </html> 
+

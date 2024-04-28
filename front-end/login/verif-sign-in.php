@@ -121,8 +121,6 @@ if (empty($results)) {
 
 // Ajout de l'email, pseudo , id à la session
 $_SESSION['email'] = $_POST['email'];
-
-
 $_SESSION['pseudo'] = $results[0]['pseudo'];
 $_SESSION['id_uti'] = $results[0]['id_uti'];
 
