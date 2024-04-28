@@ -61,7 +61,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
                                 echo '<td>' . $users['email'] . '</td>';
                                 echo '<td>' . $users['nom'] . '</td>';
                                 echo '<td>' . $users['prenom'] . '</td>';
-                                if ($users['status'] == 1)
+                                if ($users['status'] == 2)
                                     echo '<td>Admin</td>';
                                 else
                                     echo '<td>Utilisateur</td>';

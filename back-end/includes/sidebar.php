@@ -24,12 +24,6 @@
 
 
             <li class="nav-item">
-              <a class="nav-link d-flex gap-3 fs-6" href="#">
-                <i class="bi bi-sidebar bi-database"></i>
-                Base de données
-              </a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link d-flex gap-3 fs-6" href="/back-end/users/index.php">
                 <i class="bi bi-sidebar bi-person-gear"></i>
                 Utilisateurs
@@ -63,6 +57,14 @@
                 Campagnes
               </a>
             </li>
+
+            <li>
+              <a class="nav-link d-flex gap-3 fs-6" href="/back-end/parties/index.php">
+                <i class="bi bi-sidebar bi-list"></i>
+                Parties
+              </a>
+            </li>
+
             <hr class="my-3">
                        
 

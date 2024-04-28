@@ -40,12 +40,15 @@ function usersAdd($pseudo, $email, $password, $nom, $prenom, $status)
 
     $req = $bdd->prepare($q);
 
-    // TODO: Salage du mot de passe
+    // Salage de mot de passe
+    $salt = 'JimmyRohanYann';
+    $pass_salt = $_POST['password'] . $salt;
+    $pass_hash = hash('sha256', $pass_salt);
 
     $req->execute([
         'pseudo' => $pseudo,
         'email' => $email,
-        'password' => $password,
+        'password' => $pass_hash,
         'nom' => $nom,
         'prenom' => $prenom,
         'status' => $status,
@@ -83,6 +86,6 @@ if (
     }
 
 
-    usersAdd($_GET['pseudo'], $_GET['email'], $_GET['password'], $_GET['nom'], $_GET['prenom'], $_GET['status'] == 'User' ? 0 : 1);
+    usersAdd($_GET['pseudo'], $_GET['email'], $_GET['password'], $_GET['nom'], $_GET['prenom'], $_GET['status'] == 'User' ? 1 : 2);
     header('location:index.php' . '?' . 'success=Utilisateur ajouté');
 }

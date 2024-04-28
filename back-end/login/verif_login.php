@@ -66,7 +66,7 @@ $req->execute([
 // Récupérer les résultats dans un tableau $results
 $results = $req->fetchAll();
 
-if ($results[0]['status'] !== 1) {
+if ($results[0]['status'] != 2) {
     header('location: ../../front-end/index.php');
 }
 

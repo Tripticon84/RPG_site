@@ -30,31 +30,9 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
                             <option value="sign-up">Inscription</option>
                         </select>
 
-                        <div id="result" class="mt-4">
+                        <div id="result" class="mt-4 overflow-auto" style="height: 80vh;">
 
                         </div>
-
-                        <!-- <table class="table">
-                            <tr>
-                                <th>IP</th>
-                                <th>Date</th>
-                                <th>Heure</th>
-                                <th>Page</th>
-                                <th>De</th>
-                            </tr>
-                            <?php
-                            // foreach (processLogFile($file) as $log) {
-                            //     echo '<tr>';
-                            //     echo '<td>' . ($log[0] ?? '') . '</td>';
-                            //     echo '<td>' . ($log[1] ?? '') . '</td>';
-                            //     echo '<td>' . ($log[2] ?? '') . '</td>';
-                            //     echo '<td>' . ($log[3] ?? '') . '</td>';
-                            //     echo '<td>' . ($log[4] ?? '') . '</td>';
-                            //     echo '</tr>';
-                            // }
-
-                            ?>
-                        </table> -->
                         <script>
                             changeLogList();
                         </script>
