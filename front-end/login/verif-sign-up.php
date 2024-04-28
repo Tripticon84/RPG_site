@@ -258,17 +258,18 @@ sendMail($_POST['email'], 'Confirmation de votre inscription', 'Bonjour, voici v
 
 session_start();
 //stockage d'email et pseudo dans la session 
-$_SESSION['email'] = $_POST['email'];
-$_SESSION['pseudo'] = $_POST['pseudo'];
+
 
 //requete de récupération de l'id de l'user 
-$q = "SELECT id_uti FROM utilisateur WHERE id_uti = LAST_INSERT_ID()";
+$q = "SELECT id_uti,pseudo,email FROM UTILISATEUR WHERE email = :email";
 $req = $bdd->prepare($q);
-$req->execute();
+$req->execute(['email' => $_POST['email']]);
 $id_uti = $req->fetchAll(PDO::FETCH_ASSOC);
 
 //stockage de l'id user dans la session 
 $_SESSION['id_uti'] = $id_uti[0]['id_uti']; // resultat de la requête qui récupère un id
+$_SESSION['email'] = $id_uti[0]['email'];
+$_SESSION['pseudo'] = $id_uti[0]['pseudo'];
 
 
 
