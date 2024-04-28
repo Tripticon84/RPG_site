@@ -16,7 +16,7 @@ $req->execute();
 $campaigns = $req->fetch();
 
 
-$used_storage = round((disk_free_space("/") / 1024 / 1024 / 1024 * 20) / 476.15);
+$used_storage = ceil((disk_free_space("/") / 1024 / 1024 / 1024 * 20) / 476.15);
 $storage = 20;
 ?>
 
