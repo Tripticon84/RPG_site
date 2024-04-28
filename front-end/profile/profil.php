@@ -1,33 +1,47 @@
-<!DOCTYPE html>
-<html lang="Fr">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil</title>
-    
-</head>
-
 <?php $title = 'Profil';
-include('././includes/head.php'); 
-// Log de la page visitée
-require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/script.php';
-logPage($title);
+include('../script.php');
+include('../includes/head.php'); 
+include('../includes/header.php');  
+
+if (!isset($_SESSION['id_uti'])) {
+    // Redirige vers l'acceuil
+    header("Location: index.php");
+    exit; 
+} 
+
+
+$log = logPage($title);  // déclenche la fonction logPage 
+
+$db = PDOConnect();
+
+$req = $db->prepare('SELECT pseudo, email, nom , prenom,texte_je_suis, texte_recherche FROM utilisateur WHERE id_uti = :id'); //requete récuparéant les infos users incompléte , pour la compléter : 
+
+$req->execute([
+  'id' =>  $_SESSION['id_uti']
+]); //exécution de la requête
+
+
+$userData = $req->fetch(PDO::FETCH_ASSOC);//récupération dans un tableau  
+$nom = $userData['nom'];
+$prenom = $userData['prenom'];
+$texte_je_suis =$userData['texte_je_suis'];
+$texte_recherche =$userData['texte_recherche'];
+
+
+$pseudo = $_SESSION['pseudo'];
+$email = $_SESSION['email'];
+
+
+// faire en sorte que la page renvoie aux informations de l'utilisateur ou le pseudo est dans l'url
+// mais que seul l'utilisateur avec l'id associé au pseudo puisse modifier la page
 
 ?>
 
-<body>
-    <?php include('./includes/header.php'); ?>
-    <main class="mt-5">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
-    <!-- Bouton vers l'acceuil   -->
+<!-- Bouton vers l'acceuil   -->
     <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <a href="index.php" class="btn btn-outline-danger mt-3 ml-3">Accueil</a>
                 </div>
             </div>
@@ -36,140 +50,90 @@ logPage($title);
         <!-- Bouton vers le profil privé  -->
 <div class="container">
   <div class="row">
-    <div class="col-md-12 text-right mt-3">
-      <a href="private.php" class="btn btn-outline-danger">Page privé</a>
+    <div class="col-md-6 text-right mt-3">
+      <a href="private.php" class="btn btn-outline-danger">Page Privé</a>
     </div>
   </div>
 </div>
 
 
+<body>
 
 
-<div class="container">
-  <div class="row">
-    <!-- Section grise avec l'image -->
-    <div class="col-md-4">
-    <div class="rounded p-4 mb-4" style="background-color: #A72020;">
-        <!-- Contenu de la section avec l'image ici -->
-        <h2>Avatar</h2>
-        <!-- Ajouter un traitement qui va chercher l'image affilié a l'utilisateur dans la BDD -->
-        <img src="cheminvers/image.jpg" class="img-fluid" alt="Image">
-      </div>
+<form method="POST" action="verif_public.php">
+<div class="container-fluid">
+
+    <div class="row">
+        <!-- Section campagne -->
+        <div class="col-md-4">
+            <div class="rounded border bg-light p-4 my-4"> 
+                <h2>Fonctionnalités </h2>
+                <ul>
+                    <li>Mes récentes campagnes</li>
+                    <li>Mes invitations</li>
+                    <li>Liste de souhaits</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Section 1 - Je suis -->
+        <div class="col-md-8">
+            <div class="rounded border bg-secondary p-4 my-4"> 
+                <h2>Je suis</h2>
+                <textarea class="form-control" id="texte_je_suis" name = "texte_je_suis" style="height: auto;" placeholder="<?php echo($texte_je_suis)?>"></textarea>
+                <button type="submit" id="enregistrer" class="btn btn-primary d-block mx-auto">Enregistrer</button>
+            </div> 
+        </div>
     </div>
-
-    <!-- Deux sections grises à droite de l'image -->
-    <div class="col-md-8">
-      <div class="row">
-        <!-- Première section grise -->
+    
+    <!-- Section 2 - Je recherche dans un groupe -->
+    <div class="row">
+        <!-- Section campagne -->
+        <div class="col-md-4">
+        
+            <div class="border bg-light p-4 my-4">
+                <h2>Récente campagne</h2>
+                <ul>
+                    <li>blabla</li>
+                    <li>Mes invitations</li>
+                    <li>Liste de souhaits</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Section 2 - Je cherche dans un groupe -->
+        <div class="col-md-8">
+            <div class="border bg-secondary p-4 my-4">
+                <h2>Je cherche dans un groupe</h2>
+                <textarea class="form-control" id="texte_recherche" name = "texte_recherche" style="height: auto;" placeholder="<?php echo($texte_recherche)?>"></textarea>
+                <button type="submit" id="enregistrer" class="btn btn-primary d-block mx-auto">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Section Biographie -->
+    <div class="row">
         <div class="col-md-12">
-            <div class="rounded p-4 mb-4" style="background-color: #A72020;">
-            <!-- Contenu de la première section -->
-            <h2>Nom du Profil</h2>
-            <p>Contenu de la première section de texte.</p>
-          </div>
+            <div class="border bg-light p-4 my-4">
+                <h2 class="text-center">Biographie</h2>
+                <textarea class="form-control" id="biography" name = "biography" style="height: auto;" placeholder="test"></textarea>
+                <button type="submit" id="enregistrer" class="btn btn-primary d-block mx-auto">Enregistrer</button>
+            </div>
         </div>
-
-        <!-- Deuxième section grise -->
-        <div class="col-md-12">
-          <div class="rounded p-4 mb-4" style="background-color: #A72020;">
-            <!-- Contenu de la deuxième section -->
-            <h2>Ce que les autres joueurs pensent de moi </h2>
-            <p>bajkzheoiazjeoizaueioazeapzoeiapzeiapzoiepoaziepoaziepozioeaoea</p>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </div>
 
 
-<div class="container">
-  <div class="row justify-content-center">
-    <!-- Section grise à gauche -->
-    <div class="col-md-3">
-     <div class="rounded p-4 mb-4" style="background-color: #A72020;">
-        <!-- Contenu de la section gauche ici -->
-        <h2>Récent</h2>
-            <ul>
-                <li>Les dragons d'hiver</li>
-                <li>Le monstre du lac</li>
-                <li>Par Dela les nuages</li>
-                <li>Les dragons d'hiver</li>
-                <li>Le monstre du lac</li>
-                <li>Par Dela les nuages</li>
-                
-      </div>
-    </div>
-
-    <!-- Section grise centrée -->
-    <div class="col-md-6">
-     <div class="rounded p-4 mb-4" style="background-color: #A72020;">
-        <!-- Contenu de la section centrée ici -->
-        <h2>Cherche un groupe pour : </h2>
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1"></label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row justify-content-center">
-    <!-- Section grise à gauche -->
-    <div class="col-md-3">
-      <div class="rounded p-4 mb-4" style="background-color: #A72020;">
-        <!-- Contenu de la section gauche ici -->
-        <h2>Raccourcis</h2>
-        <!-- Remplacer les href par un traitement php qui n'a pas encore été défini  -->
-        <!-- ce dernier ira chercher les campagnes les plus récentes créer /jouer et -->
-        <!-- fournira un lien pour y accéder depuis cette page -->
-          <li><a href="page_messages_prives.html">Messages privés</a></li>
-          <li><a href="page_invitations.html">Voir les invitations</a></li>
-          <li><a href="page_listes_campagnes.html">Campagnes voulu</a></li>
-          <li><a href="page_messages_prives.html">Messages privés</a></li>
-          <li><a href="page_invitations.html">Voir les invitations</a></li>
-          <li><a href="page_listes_campagnes.html">Campagnes voulu</a></li>
-      </div>
-    </div>
-
-    <!-- Section grise centrée -->
-    <div class="col-md-6">
-      <div class="rounded p-4 mb-4" style="background-color: #A72020;">
-        <!-- Contenu de la section centrée ici -->
-        <h2>Je cherche un groupe pour :</h2>
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1"> </label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row justify-content-center">
-    <!-- Section grise centrée -->
-    <div class="col-md-6">
-       <div class="rounded p-4 mb-4" style="background-color: #A72020;">
-        <!-- Contenu de la section centrée ici -->
-        <h2>Biographie : </h2>
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1"></label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</form>
 
 
 
 
+<body>
 
 
-    <?php //include('./includes/footer.php');?>
-</body>
 
+<footer>
+    <?php include('../includes/footer.php');?>
+</footer>
 </html>

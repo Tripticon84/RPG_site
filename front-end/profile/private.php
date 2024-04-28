@@ -1,5 +1,5 @@
 <?php /*
-// Connexion à la base de données ???
+// Connexion à la base de données
 $login = new mysqli('localhost', 'utilisateur', 'motdepasse', 'basededonnees');
 
 // Vérifier la connexion
@@ -8,7 +8,7 @@ if ($login->connect_error) {
 }
 
 // Écrire une requête SQL pour récupérer les données
-$sql = "SELECT champ1, champ2, champ3, champ4, champ5 FROM ma_table WHERE condition = 'la condition'";
+$sql = "SELECT champ1, champ2, champ3, champ4, champ5 FROM ma_table WHERE condition = 'votre_condition'";
 
 // Exécuter la requête SQL
 $result = $login->query($sql);
@@ -31,7 +31,7 @@ if ($result->num_rows > 0) {
 $conn->close();
 
 
-// Envoie d'une requête d'enregistrement 
+// Envoie d'une reqûete d'enregistrement 
 
 if(isset($_POST['enregistrer'])) {
     $champ1 = $_POST['champ1'];
@@ -43,34 +43,47 @@ if(isset($_POST['enregistrer'])) {
 
 
 
-<!DOCTYPE html>
-<html lang="Fr">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil</title>
-    
-</head>
 
-<?php $title = 'Profil';
-include('././includes/head.php'); 
-// Log de la page visitée
-require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/script.php';
-logPage($title);
+
+<?php $title = 'Profil privé';
+include('../script.php');
+include('../includes/head.php'); 
+include('../includes/header.php');  
+
+$log = logPage($title);  // déclenche la fonction logPage ?>
+
+<?php 
+
+$db = PDOConnect();
+
+$req = $db->prepare('SELECT pseudo, email, nom , prenom FROM utilisateur WHERE id_uti = :id'); //requete récuparéant les infos users incompléte , pour la compléter : 
+
+//$stmt = $db->prepare("SELECT pseudo FROM users WHERE email = :email"); :email sert a utiliser le current email dans la session
+// $stmt->bindParam(':email', $email); // Liaison du paramètre nommé à la valeur de l'email de session   
+
+$req->execute([
+  'id' =>  $_SESSION['id_uti']
+]); //exécution de la requête
+
+
+$userData = $req->fetch(PDO::FETCH_ASSOC);//récupération dans un tableau  
+$nom = $userData['nom'];
+$prenom = $userData['prenom'];
+
+$pseudo = $_SESSION['pseudo'];
+$email = $_SESSION['email'];
+
 
 ?>
 
+
 <body>
-    <?php include('./includes/header.php'); ?>
+<script  src="js/bootstrap.bundle.min.js"></script>
+<script  src="js/profil.js"></script>
+
     <main class="mt-5">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-
-        <!-- Bouton vers l'acceuil   -->
+       
+    <!-- Bouton vers l'acceuil   -->
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -79,7 +92,7 @@ logPage($title);
             </div>
         </div>
     
-        <!-- Bouton vers le profil privé  -->
+        <!-- Bouton vers le profil publique  -->
 <div class="container">
   <div class="row">
     <div class="col-md-12 text-right mt-3">
@@ -90,62 +103,67 @@ logPage($title);
 
 
 
-    <div class="container">
-  <div class="row justify-content-center">
-    <!-- Section Info perso -->
-    <div class="col-md-8">
-      <div class="bg-light rounded p-4 mb-4" style="background-color: #FFCCCB;">
-        <!-- Contenu de la grande section -->
-        <h2 class="text-center">Informations personnelles</h2>
-        
-        <!-- 5 champs à gauche -->
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="champ1">Nom :</label>
-              <input type="text" class="form-control" id="champ1">
+<form method="post" action="verif_private.php">
+  <div class="container">
+    <div class="row justify-content-center">
+      <!-- Section Info perso -->
+      <div class="col-md-8">
+        <div class="bg-light rounded p-4 mb-4" style="background-color: #FFCCCB;">
+          <!-- Contenu de la grande section -->
+          <h2 class="text-center">Informations personnelles</h2>
+
+          <!-- 5 champs à gauche -->
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="nom">Nom : <?php echo ($nom); ?> </label> <!-- Affiche le nom -->
+                <input type="text" class="form-control" id="nom" name="nom">
+              </div>
+              <div class="form-group">
+                <label for="prénom">Prénom :<?php echo ($prenom); ?>  </label>
+                <input type="text" class="form-control" id="prenom" name="prenom">
+              </div>
+              <div class="form-group">
+                <label for="pseudo"> <b> Pseudo</b> : <?php echo ($pseudo); ?> </label> <!-- Affiche le pseudo -->
+                <input type="text" class="form-control" id="pseudo" name="pseudo">
+              </div>
+              <div class="form-group">
+                <label for="email"><b>Adresse e-mail :</b> <?php echo ($email); ?> </label> <!-- Affiche l'email -->
+                <input type="text" class="form-control" id="email" name="email">
+              </div>
+              <div class="form-group">
+                <label for="tel">Téléphone :</label>
+                <input type="text" class="form-control" id="tel" name="tel">
+              </div>
             </div>
-            <div class="form-group">
-              <label for="champ2">Prénom :</label>
-              <input type="text" class="form-control" id="champ2">
-            </div>
-            <div class="form-group">
-              <label for="champ3"> Pseudo :</label>
-              <input type="text" class="form-control" id="champ3">
-            </div>
-            <div class="form-group">
-              <label for="champ4">Adresse e-mail :</label>
-              <input type="text" class="form-control" id="champ4">
-            </div>
-            <div class="form-group">
-              <label for="champ5">Téléphone :</label>
-              <input type="text" class="form-control" id="champ5">
+
+            <!-- Trois champs à droite -->
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="mdp">Ancien mot de passe:</label>
+                <input type="password" class="form-control" id="mdp" name="ancientpassword">
+              </div>
+              <div class="form-group">
+                <label for="newmdp">Nouveau mot de passe :</label>
+                <input type="password" class="form-control" id="newmdp" name="newpassword">
+              </div>
+              <div class="form-group">
+                <label for="newmdp_confirm">Confirmer le nouveau mot de passe :</label>
+                <input type="password" class="form-control" id="newmdp_confirm" name="verifypassword">
+                <!-- Bouton en dessous des trois champs à droite -->
+                <button type="submit" id="enregistrer"  class="btn btn-primary mt-2">Enregistrer</button>
+              </div>
+              <button type="submit" id="enregistrer"  class="btn btn-primary mt-2">Export des infos utilisateurs</button>
+              <button type="submit" id="enregistrer"  class="btn btn-primary mt-2">Supprimer mon compte</button>
+
             </div>
           </div>
-          
-          <!-- Trois champs à droite -->
-          <div class="col-md-6">
-            <div class="form-group">
-              <label for="champ6">Ancien mot de passe:</label>
-              <input type="text" class="form-control" id="champ6">
-            </div>
-            <div class="form-group">
-              <label for="champ7">Nouveau mot de passe :</label>
-              <input type="text" class="form-control" id="champ7">
-            </div>
-            <div class="form-group">
-              <label for="champ8">Confirmer le nouveau mot de passe :</label>
-              <input type="text" class="form-control" id="champ8">
-              <!-- Bouton en dessous des trois champs à droite -->
-              <button type="submit" class="btn btn-primary mt-2">Enregistrer</button>
-            </div>
-          </div>
+
         </div>
-        
       </div>
     </div>
   </div>
-</div>
+</form>
 
 
 
@@ -153,7 +171,7 @@ logPage($title);
 
 
 <!-- Troisième section -->
-
+<?php /* partie du formulaire qu'on hésite a retirer -> retirer les balises ici et en bas pour voir cette partie
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
@@ -217,10 +235,11 @@ logPage($title);
   </div>
 </div>
 
+*/
+?>
 
-
-
-    <?php //include('./includes/footer.php');?>
+<?php include('../includes/footer.php');?>
 </body>
 
-</html>
+</html> 
+

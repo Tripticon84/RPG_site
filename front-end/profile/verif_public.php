@@ -1,7 +1,7 @@
 <?php
-include('script.php');
-include('includes/head.php'); 
-include('includes/header.php');  
+include('../script.php');
+include('../includes/head.php'); 
+include('../includes/header.php');  
 
 
 
