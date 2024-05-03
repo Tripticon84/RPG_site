@@ -4,7 +4,7 @@ include('../includes/head.php');
 include('../includes/header.php');  
 
 if (!isset($_SESSION['id_uti'])) {
-    // Redirige vers l'acceuil
+    // Redirige vers l’accueil
     header("Location: index.php");
     exit; 
 } 
@@ -14,7 +14,7 @@ $log = logPage($title);  // déclenche la fonction logPage
 
 $db = PDOConnect();
 
-$req = $db->prepare('SELECT pseudo, email, nom , prenom,texte_je_suis, texte_recherche FROM utilisateur WHERE id_uti = :id'); //requete récuparéant les infos users incompléte , pour la compléter : 
+$req = $db->prepare('SELECT pseudo, email, nom , prenom,texte_je_suis, texte_recherche FROM utilisateur WHERE id_uti = :id'); //requête récupérant les infos users incomplete , pour la compléter : 
 
 $req->execute([
   'id' =>  $_SESSION['id_uti']
@@ -38,7 +38,7 @@ $email = $_SESSION['email'];
 ?>
 
 
-<!-- Bouton vers l'acceuil   -->
+<!-- Bouton vers l’accueil   -->
     <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -66,7 +66,7 @@ $email = $_SESSION['email'];
     <div class="row">
         <!-- Section campagne -->
         <div class="col-md-4">
-            <div class="rounded border bg-light p-4 my-4"> 
+            <div class="rounded border bg-body-secondary p-4 my-4"> 
                 <h2>Fonctionnalités </h2>
                 <ul>
                     <li>Mes récentes campagnes</li>
@@ -78,7 +78,7 @@ $email = $_SESSION['email'];
         
         <!-- Section 1 - Je suis -->
         <div class="col-md-8">
-            <div class="rounded border bg-secondary p-4 my-4"> 
+            <div class="rounded border bg-body-secondary p-4 my-4"> 
                 <h2>Je suis</h2>
                 <textarea class="form-control" id="texte_je_suis" name = "texte_je_suis" style="height: auto;" placeholder="<?php echo($texte_je_suis)?>"></textarea>
                 <button type="submit" id="enregistrer" class="btn btn-primary d-block mx-auto">Enregistrer</button>
@@ -91,7 +91,7 @@ $email = $_SESSION['email'];
         <!-- Section campagne -->
         <div class="col-md-4">
         
-            <div class="border bg-light p-4 my-4">
+            <div class="border bg-body-secondary p-4 my-4">
                 <h2>Récente campagne</h2>
                 <ul>
                     <li>blabla</li>
@@ -103,7 +103,7 @@ $email = $_SESSION['email'];
         
         <!-- Section 2 - Je cherche dans un groupe -->
         <div class="col-md-8">
-            <div class="border bg-secondary p-4 my-4">
+            <div class="border bg-body-secondary p-4 my-4">
                 <h2>Je cherche dans un groupe</h2>
                 <textarea class="form-control" id="texte_recherche" name = "texte_recherche" style="height: auto;" placeholder="<?php echo($texte_recherche)?>"></textarea>
                 <button type="submit" id="enregistrer" class="btn btn-primary d-block mx-auto">Enregistrer</button>
