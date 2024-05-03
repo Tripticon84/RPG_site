@@ -15,7 +15,7 @@ async function searchCampaigns() {
 
   const campaigns = JSON.parse(data);
 
-  let html;
+  let html = "";
 
   for (let i = 0; i < campaigns.length; i++) {
     const campaign = campaigns[i];
