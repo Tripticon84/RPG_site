@@ -53,7 +53,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/dompdf/autoload.inc.php';
 
 $options = new Options();
 $options->set('isRemoteEnabled',true);
-$fichier = 'a';
+$fichier = 'Données de ' . $user['pseudo'];
 
 $dompdf = new Dompdf($options);
 
