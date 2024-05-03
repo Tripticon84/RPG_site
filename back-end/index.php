@@ -16,8 +16,8 @@ $req->execute();
 $campaigns = $req->fetch();
 
 
-$used_storage = ceil((disk_free_space("/") / 1024 / 1024 / 1024 * 20) / 476.15);
 $storage = 20;
+$used_storage = ceil((disk_free_space("/") / 1024 / 1024 / 1024 * 20) / 476.15);
 ?>
 
 
@@ -28,7 +28,7 @@ $storage = 20;
             <?php include('./includes/sidebar.php'); ?>
             <main class="col-md-9 ms-sm-auto col-lg-10">
                 <div class="row g-3 m-2">
-                    <div class="col rounded rounded-4 bg-danger p-3">
+                    <div class="col rounded rounded-4 bg-body-secondary p-3">
                         <div class="row align-items-center gy-3">
                             <div class="col d-flex align-items-start">
                                 <i class="bi bi-map bi-quickinfo h1 m-2"></i>
@@ -63,7 +63,7 @@ $storage = 20;
                 </div>
 
                 <div class="row g-3 m-2 mt-5">
-                    <div class="col-md-7 ms-sm-auto ms-md-0 bg-info h-100 p-3 rounded rounded-4">
+                    <div class="col-md-7 ms-sm-auto ms-md-0 bg-body-secondary h-100 p-3 rounded rounded-4">
                         <h4 class="fw-bold mb-3">Graphique</h4>
                         <img src="./img/chart.svg" width="100%">
 
@@ -71,7 +71,7 @@ $storage = 20;
 
 
 
-                    <div class="col-md-4 offset-md-1 p-3 bg-success rounded rounded-4">
+                    <div class="col-md-4 offset-md-1 p-3 bg-body-secondary rounded rounded-4">
                         <h4 class="fw-bold mb-3">Activités</h4>
                         <div class="flex-column">
                             <div>

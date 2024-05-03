@@ -34,7 +34,7 @@ $captcha = $req->fetchAll();
 
     <main>
             <form 
-                class="d-flex flex-column my-4 mx-auto bg-secondary bg-opacity-75 p-3 rounded-4 login-window"
+                class="d-flex flex-column my-4 mx-auto bg-body-secondary bg-opacity-75 p-3 rounded-4 login-window"
                 action="verif-sign-up-mail.php"
                 method="post">
                 <?php if(isset($_GET['message']) && !empty($_GET['message'])) {

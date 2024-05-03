@@ -10,7 +10,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
             <?php include('../includes/sidebar.php'); ?>
             <main class="col-md-9 ms-sm-auto col-lg-10">
                 <div class="row g-3 m-2">
-                    <div class="col bg-body-tertiary">
+                    <div class="col bg-body-secondary">
 
                         <h2 class="my-3">Afficher les logs</h2>
 

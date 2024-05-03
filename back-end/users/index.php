@@ -11,7 +11,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
             <?php include('../includes/sidebar.php'); ?>
             <main class="col-md-9 ms-sm-auto col-lg-10">
                 <div class="row g-3 m-2">
-                    <div class="col-12 bg-body-tertiary col-xl-5">
+                    <div class="col-12 bg-body-secondary col-xl-5">
 
                         <h2 class="my-3">Création d'un utilisateur</h2>
 
