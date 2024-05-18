@@ -20,7 +20,8 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
     />
     <!-- Bootstrap JavaScript Libraries -->
-    <script
+    <!-- <script
         src="/js/bootstrap.bundle.min.js"
-    ></script>
+    ></script> -->
+    <script src="/front-end/js/main.js"></script>
 </head>
