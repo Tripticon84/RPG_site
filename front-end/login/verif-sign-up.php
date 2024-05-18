@@ -189,7 +189,7 @@ if (!empty($results) && $results[0]['email'] == $_POST['email']) {
 
 
 // Écrire la requête INSERT INTO à trous
-$q = 'INSERT INTO UTILISATEUR (pseudo, email, password, prenom, nom) VALUES (:pseudo, :email, :password, :prenom, :nom)';
+$q = 'INSERT INTO UTILISATEUR (pseudo, email, password, prenom, nom, avatar) VALUES (:pseudo, :email, :password, :prenom, :nom :avatar)';
 
 // Préparation de la requête
 $req = $bdd->prepare($q);
@@ -205,7 +205,8 @@ $result = $req->execute([
     'email' => $_POST['email'],
     'password' => $pass_hash,
     'prenom' => $_POST['prenom'],
-    'nom' => $_POST['nom']
+    'nom' => $_POST['nom'],
+    'avatar' => 'default'
 ]);
 
 

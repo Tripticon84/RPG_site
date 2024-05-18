@@ -11,7 +11,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
             <?php include('../includes/sidebar.php'); ?>
             <main class="col-md-9 ms-sm-auto col-lg-10">
                 <div class="row g-3 m-2">
-                    <div class="col-5 bg-body-tertiary">
+                    <div class="col-5 bg-body-secondary h-50">
                         <?php
                         if (isset($_GET['message']) && !empty($_GET['message'])) {
                             alertWarning('Erreur', $_GET['message']);
