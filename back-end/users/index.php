@@ -65,7 +65,13 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
                                     echo '<td>Admin</td>';
                                 else
                                     echo '<td>Utilisateur</td>';
-                                echo '<td><a href="users_script.php?id=' . $users['id_uti'] . '&action=delete' . '" class="bi bi-trash"></a></td>';
+
+                                
+                                    echo '<td>
+                                        <a href="users_modif.php?id=' . $users['id_uti'] . '" class="bi bi-pencil me-2"></a>
+                                        <a href="users_script.php?id=' . $users['id_uti'] . '&action=delete' . '" class="bi bi-trash"></a>
+                                        </td>';
+                                
                                 echo '</tr>';
                             }
                             ?>

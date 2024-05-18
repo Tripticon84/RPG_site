@@ -88,4 +88,5 @@ if (
 
     usersAdd($_GET['pseudo'], $_GET['email'], $_GET['password'], $_GET['nom'], $_GET['prenom'], $_GET['status'] == 'User' ? 1 : 2);
     header('location:index.php' . '?' . 'success=Utilisateur ajouté');
+    exit();
 }
