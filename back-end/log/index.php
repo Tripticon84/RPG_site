@@ -13,7 +13,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
                     <div class="col bg-body-secondary">
 
                         <h2 class="my-3">Afficher les logs</h2>
-
+                        <button class="btn btn-primary my-3" onclick="deleteLogList()">Effacer les logs</button>
                         <?php
                         if (isset($_GET['message']) && !empty($_GET['message'])) {
                             alertWarning('Erreur', $_GET['message']);
@@ -38,4 +38,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
                         </script>
                     </div>
                 </div>
+            </main>
+        </div>
+    </div>
 </body>

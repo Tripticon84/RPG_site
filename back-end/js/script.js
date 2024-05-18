@@ -31,3 +31,12 @@ async function changeLogList() {
   const div = document.getElementById("result");
   div.innerHTML = html;
 }
+
+async function deleteLogList() {
+  const logInput = document.getElementById("logAction");
+  const input = logInput.options[logInput.selectedIndex].value;
+
+  const res = await fetch("logs_delete.php?action=" + input);
+
+  changeLogList();
+}

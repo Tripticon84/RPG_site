@@ -1,9 +1,10 @@
 <?php
 
 session_start();
-if (!isset($_SESSION['user']) && $title !== 'Connexion')
+if (!isset($_SESSION['user']) && $title !== 'Connexion'){
     header('location: /back-end/login/index.php');
-
+    exit;
+}
 require_once '../script.php';
 
 header('Content-Type: application/json');
@@ -15,20 +16,3 @@ header('Content-Type: application/json');
         $result[] = explode(" - ", $line);
     }
     echo json_encode($result);
-
-// function processLogFile($file)
-// {
-//     $filePath = $_SERVER['DOCUMENT_ROOT'] . '/logs/' . $file . '.txt';
-//     $fileContents = file_get_contents($filePath);
-//     $lines = explode("\n", $fileContents);
-
-//     foreach ($lines as $line) {
-//         $result[] = explode(" - ", $line);
-//     }
-
-//     return $result;
-// }
-
-
-    // return $result;
-
