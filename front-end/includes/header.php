@@ -17,14 +17,14 @@ if (isset($_SESSION['email'])) {
 
 <header class="bg-body-tertiary">
   <nav class="navbar navbar-expand-sm bg-body-tertiary sticky-top border-bottom border-1 border-black">
-    <div class="container-fluid justify-content-between text-nowrap flex-sm-wrap"">
+    <div class="container-fluid justify-content-between text-nowrap flex-sm-wrap">
       <div class="d-flex align-items-center flex-sm-wrap">
-      <a href="#" class="navbar-brand">
+      <a href="/front-end/" class="navbar-brand">
         <img src="/front-end/img/logo256px.png" alt="logo" height="150px">
         <span class="text-decoration-none m-1 fw-bold d-none d-sm-inline">Roll of Odyssey</span>
       </a>
 
-      <!-- NavBar / OffCanvas -->
+      <!-- NavBar -->
           <ul class="navbar-nav">
             <li class="nav-item ">
               <a class="nav-link" aria-current="page" href="/front-end/index.php">Accueil</a>
@@ -32,7 +32,7 @@ if (isset($_SESSION['email'])) {
             <?php
             if (isset($_SESSION['email'])) { ?>
               <li class="nav-item">
-                <a href="workshop/index.php" class="nav-link">Workshop</a>
+                <a href="/front-end/workshop/" class="nav-link">Workshop</a>
               </li>
             <?php } ?>
             <li class="nav-item">
