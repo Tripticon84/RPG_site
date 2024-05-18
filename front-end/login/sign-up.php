@@ -26,7 +26,7 @@ include_once('../includes/message.php'); ?>
     $req->execute([]);
 
 // Récupérer les résultats dans un tableau $captcha
-$captcha = $req->fetchAll();
+$captcha = $req->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -90,16 +90,15 @@ $captcha = $req->fetchAll();
 
                 <div class="form-check my-3">
                     <input class="form-check-input" name="newsletter" type="checkbox" value="" id="CheckNewsletter" checked>
-                    <label class="form-check-label" for="CheckNewsletter">
-                        S'inscrire à la newsletter
+                    <label class="form-check-label" for="CheckNewsletter">S'inscrire à la newsletter</label>
                 </div>
 
                 <h2 class="my-3 text-center">Captcha de vérification</h2>
                 <?php
                 
-                echo '<span class="my-3 h4">' . $captcha[0]['question'] . '</span>';
+                echo '<span class="my-3 h4">' . $captcha['question'] . '</span>';
                 
-                echo '<input type="hidden" name="captcha_id"' . 'value="' . $captcha['0']['id_captcha'] . '">';
+                echo '<input type="hidden" name="captcha_id"' . 'value="' . $captcha['id_captcha'] . '">';
                 ?>
                 <div class="form-floating">
                     <input type="captcha" name="captcha_reponse" class="form-control" id="floatingCaptcha" placeholder="Réponse" required>

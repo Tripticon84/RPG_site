@@ -24,7 +24,7 @@ include_once('../includes/message.php'); ?>
     $req->execute([]);
 
 // Récupérer les résultats dans un tableau $captcha
-$captcha = $req->fetchAll();
+$captcha = $req->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -62,9 +62,9 @@ $captcha = $req->fetchAll();
                 <h2 class="my-3 text-center">Captcha de vérification</h2>
                 <?php
                 
-                echo '<span class="my-3 h4">' . $captcha[0]['question'] . '</span>';
+                echo '<span class="my-3 h4">' . $captcha['question'] . '</span>';
                 
-                echo '<input type="hidden" name="captcha_id"' . 'value="' . $captcha['0']['id_captcha'] . '">';
+                echo '<input type="hidden" name="captcha_id"' . 'value="' . $captcha['id_captcha'] . '">';
                 ?>
 
 
