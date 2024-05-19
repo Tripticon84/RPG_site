@@ -34,18 +34,18 @@ $tags = $req->fetchAll(PDO::FETCH_ASSOC);
 
                 </div>
             </div>
-            <div class="row mt-3">
+            <div class="row mt-3 mb-5 rounded-3 bg-body-secondary">
                 <!-- Sidebar -->
-                <div class="d-flex flex-column col-3 bg-body-secondary p-3 rounded-3">
-                        <label for="search">Rechercher</label>
-                        <input type="text" name="search" id="search" class="form-control" placeholder="Rechercher une campagne" oninput="searchCampaigns()">
-                        <select name="sort" id="sort" class="form-select mt-2" oninput="searchCampaigns()">
-                            <option value="nom" selected>Nom</option>
-                        </select>
-                        <select name="order" id="order" class="form-select mt-2" oninput="searchCampaigns()">
-                            <option value="asc">Croissant</option>
-                            <option value="desc">Décroissant</option>
-                        </select>
+                <div class="d-flex flex-column col-3 p-3 ">
+                    <label for="search">Rechercher</label>
+                    <input type="text" name="search" id="search" class="form-control" placeholder="Rechercher une campagne" oninput="searchCampaigns()">
+                    <select name="sort" id="sort" class="form-select mt-2" oninput="searchCampaigns()">
+                        <option value="nom" selected>Nom</option>
+                    </select>
+                    <select name="order" id="order" class="form-select mt-2" oninput="searchCampaigns()">
+                        <option value="asc">Croissant</option>
+                        <option value="desc">Décroissant</option>
+                    </select>
                     <hr>
                     <!-- Tags -->
                     <div class="d-flex flex-column tags">
@@ -68,7 +68,7 @@ $tags = $req->fetchAll(PDO::FETCH_ASSOC);
                 </div>
 
                 <!-- Campagne -->
-                <div class="d-flex col-9 bg-body-secondary rounded-3 p-3" id="result">
+                <div class="d-flex col-9 rounded-3 p-3" id="result">
 
                 </div>
             </div>
@@ -77,4 +77,5 @@ $tags = $req->fetchAll(PDO::FETCH_ASSOC);
             searchCampaigns();
         </script>
     </main>
+    <?php include('../includes/footer.php'); ?>
 </body>
