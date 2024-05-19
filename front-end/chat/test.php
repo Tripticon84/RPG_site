@@ -25,3 +25,6 @@ require_once 'chat_script.php';
         <textarea id="chatInput" class="form-control me-2" placeholder="Message" style="resize:none"></textarea>
         <button class="btn btn-primary" onclick="sendChat()">Envoyer</button>
 </div>
+<script>
+    setInterval(displayChat, 1000);
+</script>

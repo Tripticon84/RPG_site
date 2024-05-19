@@ -3,15 +3,6 @@
 require_once '../script.php';
 require_once 'chat_script.php';
 
-$bdd = PDOConnect();
-
-$q = 
-
-
-
-
-
-
 header('Content-Type: application/json');
 
 if (isset($_GET['chatID']) && !empty($_GET['chatID']))
