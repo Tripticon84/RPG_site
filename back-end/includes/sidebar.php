@@ -52,7 +52,7 @@
 
 
             <li class="nav-item">
-              <a class="nav-link d-flex gap-3 fs-6" href="#">
+              <a class="nav-link d-flex gap-3 fs-6" href="/back-end/campagnes/">
                 <i class="bi bi-sidebar bi-map"></i>
                 Campagnes
               </a>
