@@ -39,12 +39,12 @@ $tags = $req->fetchAll(PDO::FETCH_ASSOC);
                 <div class="d-flex flex-column col-3 bg-body-secondary p-3 rounded-3">
                         <label for="search">Rechercher</label>
                         <input type="text" name="search" id="search" class="form-control" placeholder="Rechercher une campagne" oninput="searchCampaigns()">
+                        <select name="sort" id="sort" class="form-select mt-2" oninput="searchCampaigns()">
+                            <option value="nom" selected>Nom</option>
+                        </select>
                         <select name="order" id="order" class="form-select mt-2" oninput="searchCampaigns()">
                             <option value="asc">Croissant</option>
                             <option value="desc">Décroissant</option>
-                        </select>
-                        <select name="sort" id="sort" class="form-select mt-2" oninput="searchCampaigns()">
-                            <option value="nom" selected>Nom</option>
                         </select>
                     <hr>
                     <!-- Tags -->
