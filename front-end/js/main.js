@@ -59,7 +59,8 @@ async function EasterEgg(searchInput) {
     searchInput === "Rickroll" ||
     searchInput === "rickroll" ||
     searchInput === "Rick Roll" ||
-    searchInput === "rick roll"
+    searchInput === "rick roll" ||
+    searchInput === "Sananes"
   ) {
 
     const div = document.getElementById("result");
