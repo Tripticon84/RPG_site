@@ -69,15 +69,15 @@ $id = $req->fetchAll();
 
 // Si le captcha n'existe pas > redirection
 if (empty($id)) {
-    writeLogSignUp(false, $_POST['email']);
-    header('location:sign-up.php' . '?' . 'message=Erreur lors de la validation du captcha.');
+    writeLogSignIn(false, $_POST['email']);
+    header('location:sign-in.php' . '?' . 'message=Erreur lors de la validation du captcha.');
     exit;
 }
 
 // Si la réponse du captcha ne correspond pas à la réponse envoyée > redirection
 if ($id[0]['reponse'] != $_POST['captcha_reponse']) {
-    writeLogSignUp(false, $_POST['email']);
-    header('location:sign-up.php' . '?' . 'message= Mauvais captcha.');
+    writeLogSignIn(false, $_POST['email']);
+    header('location:sign-in.php' . '?' . 'message= Mauvais captcha.');
     exit;
 }
 
