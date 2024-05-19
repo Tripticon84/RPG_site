@@ -14,8 +14,9 @@ if (!isset($_POST['chatID'])
 } else {
     
     $chatID = htmlspecialchars($_POST['chatID']);
-    $message = htmlspecialchars($_POST['message']);
-    addChat($_POST['chatID'],$_SESSION['pseudo'], $_POST['message']);
+    $message = str_replace(array("\r", "\n"), ' ', $_POST['message']);
+
+    addChat($_POST['chatID'],$_SESSION['pseudo'], $message);
     http_response_code(200);
 
 }

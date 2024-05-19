@@ -60,7 +60,8 @@ async function EasterEgg(searchInput) {
     searchInput === "rickroll" ||
     searchInput === "Rick Roll" ||
     searchInput === "rick roll" ||
-    searchInput === "Sananes"
+    searchInput === "Sananes" ||
+    searchInput === "sananes"
   ) {
 
     const div = document.getElementById("result");
@@ -88,9 +89,9 @@ async function displayChat() {
   for (let i = 1; i < messages.length; i++) {
     const message = messages[i];
 
-    if (message !== null || message !== "" || message !== undefined) {
-    }
-    if (messages[0] !== message[1]) {
+    if (message[0] == null || message[0] == "" || message[0] == undefined || message[0] == "\n") {
+    } else {
+    if (user !== message[1]) {
       html += "<!-- Message -->";
       html += `<div class="d-flex">`;
       // html += `<img src="https://via.placeholder.com/50" alt="Avatar" class="rounded-circle m-2" width="50px" height="50px">`;
@@ -110,6 +111,7 @@ async function displayChat() {
       html += `</div>`;
     }
   }
+}
   const div = document.getElementById("chatResult");
   div.innerHTML = html;
 
