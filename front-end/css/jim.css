@@ -1,0 +1,411 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+:root {
+    --text-color: #1a1a1a; /* Clair : Licorice */
+    --background-color: #f9f9f9; /* Sombre : Alabaster */
+
+    :root {
+        --ecriture-light: #190B0B;
+        --background-light: #F8EDED;
+        --primary-light: #A72020;
+        --secondary-light: #F47B7D;
+        --accent-light: #ED5E5E;
+
+        --ecriture-dark: #F4E6E6;
+        --background-dark: #120707;
+        --primary-dark: #DF5858;
+        --secondary-dark: #840B0D;
+        --accent-dark: #A11212;
+    }
+
+    body {
+        color: var(--ecriture-light);
+        background-color: var(--background-light);
+    }
+
+    body.dark-mode {
+        color: var(--ecriture-dark);
+        background-color: var(--background-dark);
+    }
+}
+
+/* Utilisation des variables CSS pour le thème */
+body {
+    font-family: 'Poppins', sans-serif;
+    
+    color: var(--text-color);
+    font-size: 100%; /* 16px par défaut */
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    transition: background-color 0.3s, color 0.3s;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Titre H1 */
+.h1 {
+    font-size: 4.210rem; /* 67.36px */
+    font-weight: 700; /* Gras */
+    color: var(--text-color);
+}
+
+/* Titre H2 */
+.h2 {
+    font-size: 3.158rem; /* 50.56px */
+    font-weight: 700; /* Gras */
+    color: var(--text-color);
+}
+
+/* Titre H3 */
+.h3 {
+    font-size: 2.369rem; /* 37.92px */
+    font-weight: 700; /* Gras */
+    color: var(--text-color);
+}
+
+/* Titre H4 */
+.h4 {
+    font-size: 1.777rem; /* 28.48px */
+    font-weight: 700; /* Gras */
+    color: var(--text-color);
+}
+
+/* Titre H5 */
+.h5 {
+    font-size: 1.333rem; /* 21.28px */
+    font-weight: 700; /* Gras */
+    color: var(--text-color);
+}
+
+/* Texte Small */
+.small {
+    font-size: 0.750rem; /* 12px */
+    font-weight: 700; /* Gras */
+    color: var(--text-color);
+}
+.ul, .li {
+    list-style: none; /* Supprime les puces des listes */
+    padding: 0; /* Supprime le padding */
+    margin: 0; /* Supprime la marge */
+}
+/* S'assure que le conteneur parent de l'image touche les bords */
+.container {
+    width: 100vw;  /* S'assure que le conteneur occupe toute la largeur de la fenêtre */
+    margin: 0;
+    padding: 0;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Assurez-vous que toutes les images touchent les bords de leurs conteneurs avec une hauteur réduite */
+img {
+    width: 100%;
+    height: auto; /* Vous pouvez ajuster cette valeur selon vos besoins */
+    max-height: 300px;
+    display: block;
+    margin: 0;
+    padding: 0;
+    object-fit: fill;
+    border-radius: 30   px;
+ /* Assure que l'image couvre le conteneur sans distorsion */
+}
+
+
+
+/* En-tête */
+header {
+    display: flex;
+    background-color: var(--primary-light);
+    color: var(--ecriture-light);
+    padding: 20px;
+    justify-content: center;
+    align-items:  center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode header {
+    background-color: var(--primary-dark);
+    color: var(--ecriture-dark);
+}
+
+header h1 {
+    margin: 0;
+}
+
+.mode-sombre-btn {
+    font-size: 12px; 
+    padding: 5px 10px; 
+    margin: 0; 
+    background-color: #444; 
+    color: white;
+    border: none; 
+    border-radius: 3px; 
+    cursor: pointer; 
+    display: inline-block;
+    line-height: 1.5; 
+}
+
+nav ul {
+display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    align-items: center;
+    
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a {
+    color: var(--ecriture-light);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+body.dark-mode nav ul li a {
+    color: var(--ecriture-dark);
+}
+
+/* Bouton de changement de thème */
+button.changeTheme {
+    background-color: var(--accent-light);
+    color: var(--ecriture-light);
+    border: 1px solid var(--ecriture-light);
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button.changeTheme:hover {
+    background-color: var(--secondary-light);
+    color: var(--ecriture-light);
+}
+
+body.dark-mode button.changeTheme {
+    background-color: var(--accent-dark);
+    color: var(--ecriture-dark);
+    border: 1px solid var(--ecriture-dark);
+}
+
+body.dark-mode button.changeTheme:hover {
+    background-color: var(--secondary-dark);
+    color: var(--ecriture-dark);
+}
+
+
+/* Pied de page */
+footer {
+    background-color: var(--primary-light);
+    color: var(--ecriture-light);
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    bottom: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode footer {
+    background-color: var(--primary-dark);
+    color: var(--ecriture-dark);
+}
+
+/* Titres */
+h1, h2 {
+    color: var(--primary-light);
+    transition: color 0.3s;
+}
+
+body.dark-mode h1, body.dark-mode h2 {
+    color: var(--primary-dark);
+}
+
+/* Formulaires */
+form {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input, textarea, button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button {
+    background-color: var(--accent-light);
+    color: var(--ecriture-light);
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: var(--secondary-light);
+    color: var(--ecriture-light);
+}
+
+body.dark-mode button {
+    background-color: var(--accent-dark);
+    color: var(--ecriture-dark);
+}
+
+body.dark-mode button:hover {
+    background-color: var(--secondary-dark);
+    color: var(--ecriture-dark);
+}
+
+/* Tableaux */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid #dee2e6;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--secondary-light);
+}
+
+body.dark-mode th {
+    background-color: var(--secondary-dark);
+}
+
+/* Liens */
+a {
+    color: var(--primary-light);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+body.dark-mode a {
+    color: var(--primary-dark);
+}
+
+/* Messages d'erreur */
+.error {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.success {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Styles pour la page à propos */
+.image-container {
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.image-container img {
+    max-width: 45%;
+    height: auto;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.accordion {
+    background-color: var(--background-light);
+    color: var(--ecriture-light);
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    border-bottom: 1px solid var(--primary-light);
+}
+
+.active, .accordion:hover {
+    background-color: var(--secondary-light);
+    color: var(--ecriture-light);
+}
+
+.accordion:after {
+    content: '\002B';
+    color: var(--ecriture-light);
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    background-color: var(--background-light);
+    color: var(--ecriture-light);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    border: 1px solid var(--primary-light);
+}
+
+body.dark-mode .accordion {
+    background-color: var(--background-dark);
+    color: var(--ecriture-dark);
+    border-bottom: 1px solid var(--primary-dark);
+}
+
+body.dark-mode .active, body.dark-mode .accordion:hover {
+    background-color: var(--secondary-dark);
+    color: var(--ecriture-dark);
+}
+
+body.dark-mode .accordion:after {
+    color: var(--ecriture-dark);
+}
+
+body.dark-mode .panel {
+    background-color: var(--background-dark);
+    color: var(--ecriture-dark);
+    border: 1px solid var(--primary-dark);
+}

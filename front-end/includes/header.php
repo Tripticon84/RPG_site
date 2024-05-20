@@ -27,7 +27,7 @@ if (isset($_SESSION['email'])) {
       <!-- NavBar -->
           <ul class="navbar-nav">
             <li class="nav-item ">
-              <a class="nav-link" aria-current="page" href="/front-end/index.php">Accueil</a>
+              <a class="nav-link" aria-current="page" href="/front-end/">Accueil</a>
             </li>
             <?php
             if (isset($_SESSION['email'])) { ?>
@@ -36,13 +36,13 @@ if (isset($_SESSION['email'])) {
               </li>
             <?php } ?>
             <li class="nav-item">
-              <a href="#" class="nav-link">Règles</a>
+              <a href="/front-end/rules/" class="nav-link">Règles</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Support</a>
+              <a href="/front-end/faq/" class="nav-link">Support</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">À propos</a>
+              <a href="/front-end/about/" class="nav-link">À propos</a>
             </li>
           </ul>
       </div>
