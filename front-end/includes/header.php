@@ -55,7 +55,7 @@ if (isset($_SESSION['email'])) {
               <a href="#" class="d-block text-decoration-none me-5 dropbtn dropdown-toggle" onclick="dropdown()">
                 <img src="/image/users/<?= $user['avatar'] == NULL ? 'default' : $user['avatar'] ?>-64px.png" alt="mdo" width="32" height="32" class="rounded-circle">
               </a>
-              <ul class="dropdown-content rounded-3 m-0" id="dropdownHeader">
+              <ul class="dropdown-content rounded-3 m-0 bg-body-secondary" id="dropdownHeader">
                 <li><a class="dropdown-item bi bi-person" href="/front-end/profile/profil.php"> Profil</a></li>
                 <li><a class="dropdown-item bi bi-map" href="#"> Mes campagnes</a></li>
                 <li><a class="dropdown-item bi bi-gear" href="/front-end/profile/private.php"> Paramètres</a></li>
