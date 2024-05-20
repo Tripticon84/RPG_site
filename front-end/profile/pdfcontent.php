@@ -63,7 +63,7 @@ $campagnes = $req->fetchAll(PDO::FETCH_ASSOC);
         <div class=" d-flex my-3">
             <?php foreach ($campagnes as $campagne) : ?>
                 <?php
-                    $base64 = base64_encode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/image/campagnes/' . $campagne['logo']));
+                    $base64 = base64_encode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . '/image/campagnes/' . $campagne['logo'] . '.png'));
                     ?>
 
                 <div class="card" style="width: 18rem; height:fit-content">
