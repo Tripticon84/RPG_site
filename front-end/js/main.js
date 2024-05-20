@@ -57,15 +57,22 @@ async function EasterEgg(searchInput) {
     searchInput === "Rickroll" ||
     searchInput === "rickroll" ||
     searchInput === "Rick Roll" ||
-    searchInput === "rick roll" ||
-    searchInput === "Sananes" ||
-    searchInput === "sananes"
+    searchInput === "rick roll"
   ) {
+    console.log("Rick Astley");
     const div = document.getElementById("result");
     div.innerHTML =
       '<iframe width="1920" height="500" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&controls=0&loop=1&mute=0&rel=0&fs=1&cc_load_policy=0&iv_load_policy=0&modestbranging=0&playsinline=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
 
-    exit();
+  }
+  if (
+    searchInput === "Sananes" ||
+    searchInput === "sananes"
+  ) {
+    console.log("Sananes");
+    const div = document.getElementById("result");
+    div.innerHTML =
+      '<iframe width="1920" height="500" src="https://www.youtube.com/embed/Q0J7k9KB0Z8?autoplay=1&controls=0&loop=1&mute=0&rel=0&fs=1&cc_load_policy=0&iv_load_policy=0&modestbranging=0&playsinline=1&playlist=Q0J7k9KB0Z8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
   }
 }
 
