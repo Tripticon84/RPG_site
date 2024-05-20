@@ -5,21 +5,6 @@ body {
   font-weight: 400;
 }
 
-:root[data-bs-theme=light] {
-  --text: #190b0b;
-  --bs-tertiary-bg: #f8eded;
-  --bs-primary: #a72020 !important;
-  color: #a720200d;
-  --bs-secondary: #f47b7d !important;
-  --accent: #ed5e5e !important;
-}
-:root[data-bs-theme=dark] {
-  --text: #f4e6e6;
-  --background: #120707;
-  --primary: #df5858;
-  --secondary: #840b0d;
-  --accent: #a11212;
-}
 
 section {
   margin-bottom: 30vh;

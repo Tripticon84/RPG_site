@@ -14,7 +14,7 @@ $log = logPage($title);  // déclenche la fonction logPage
 
 $db = PDOConnect();
 
-$req = $db->prepare('SELECT pseudo, email, nom , prenom,texte_je_suis, texte_recherche FROM utilisateur WHERE id_uti = :id'); //requête récupérant les infos users incomplete , pour la compléter : 
+$req = $db->prepare('SELECT pseudo, email, nom , prenom,texte_je_suis, texte_recherche FROM UTILISATEUR WHERE id_uti = :id'); //requête récupérant les infos users incomplete , pour la compléter : 
 
 $req->execute([
   'id' =>  $_SESSION['id_uti']
@@ -114,7 +114,7 @@ $email = $_SESSION['email'];
     <!-- Section Biographie -->
     <div class="row">
         <div class="col-md-12">
-            <div class="border bg-light p-4 my-4">
+            <div class="border bg-body-secondary p-4 my-4">
                 <h2 class="text-center">Biographie</h2>
                 <textarea class="form-control" id="biography" name = "biography" style="height: auto;" placeholder="test"></textarea>
                 <button type="submit" id="enregistrer" class="btn btn-primary d-block mx-auto">Enregistrer</button>

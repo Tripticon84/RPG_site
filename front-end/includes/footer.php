@@ -12,10 +12,15 @@
             <span class="text-body-secondary">
                 <i class="bi bi-file-text"></i> Conditions d'utilisation</span>
         </a>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="darkModeSwitch" checked>
+            <label class="form-check-label" for="darkModeSwitch">Mode Sombre</label>
+        </div>
+
     </div>
 
     <ul class="nav col-md-3 justify-content-end list-unstyled d-flex fs-5 mx-4">
-    <li class="ms-4">
+        <li class="ms-4">
             <a class="text-body-secondary" href="#">
                 <i class="bi bi-twitter-x"></i>
             </a>

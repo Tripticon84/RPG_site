@@ -1,7 +1,12 @@
 <?php $title = 'Newsletter';
 include('../includes/head.php');
-require 'newsletter_script.php'; 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
+require 'newsletter_script.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; 
+
+$bdd = PDOConnect();
+
+?>
+
 
 <body>
     <?php include('../includes/header.php'); ?>
@@ -11,45 +16,35 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
             <main class="col-md-9 ms-sm-auto col-lg-10">
                 <div class="row g-3 m-2">
                     <div class="col-12 bg-body-secondary col-xl-5">
-                        <!-- Création d'une newsletter -->
-                        <!-- <h2 class="my-3">Créer une newsletter</h2>
-                        <form action="newsletter_script.php" method="get">
-                            <label for="objet">Objet de la Newsletter</label>
-                            <input type="text" name="" class="form-control mb-3" placeholder="Objet">
-                            <label for="corps">Corps de la Newsletter</label>
-                            <input type="text" name="" class="form-control mb-3" placeholder="Corps">
-                            <label for="recurence">Récurrence (en jours)</label>
-                            <input type="number" name="recurence" class="form-control mb-3" placeholder="Récurrence">
-                            <input type="hidden" name="action" value="addNewsletter">
-                            <input type="submit" value="Créer la newsletter" class="btn btn-primary my-3">
-                        </form> -->
 
 
                         <!-- Liste des newsletters -->
                         <table class="table">
                             <tr>
-                                <th>Objet</th>
-                                <th>Corps</th>
-                                <th>Contenu</th>
-                                <th>Actions</th>
+                                <th>Date</th>
+                                <th>Campagne 1</th>
+                                <th>Campagne 2</th>
+                                <th>Campagne 3</th>
+                                <th>Nb d'email</th>
                             </tr>
 
                             <?php
-                            // foreach (listAllNewsletter() as $newsletter) {
-                            //     echo '<tr>';
-                            //     echo '<td>' . $newsletter['objet'] . '</td>';
-                            //     echo '<td>' . $newsletter['contenu'] . '</td>';
-                            //     echo '<td>' . $newsletter['recurrence'] . '</td>';
-                            //     echo '<td><a href="newsletter_script.php?id=' . $newsletter['id'] . '&action=delete' . '" class="bi bi-trash"></a></td>';
-                            //     echo '</tr>';
-                            // }
+                            foreach (listAllNewsletter($bdd) as $newsletter) {
+                                echo '<tr>';
+                                echo '<td>' . date('d/m/Y', strtotime($newsletter['date'])) . '</td>';
+                                echo '<td>' . $newsletter['campagne1'] . '</td>';
+                                echo '<td>' . $newsletter['campagne2'] . '</td>';
+                                echo '<td>' . $newsletter['campagne3'] . '</td>';
+                                echo '<td>' . $newsletter['nb_emails'] . '</td>';
+                                echo '</tr>';
+                            }
                             ?>
                         </table>
                     </div>
                     <div class="col-12 col-xl-6 offset-1">
-                        <?php 
-                            if (isset($_GET['message']) && !empty($_GET['message'])) {
-                                alertWarning('Erreur', $_GET['message']);
+                        <?php
+                        if (isset($_GET['message']) && !empty($_GET['message'])) {
+                            alertWarning('Erreur', $_GET['message']);
                         }
                         ?>
                         <?php
@@ -66,7 +61,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
                             </tr>
 
                             <?php
-                            foreach (newsletterList() as $newsletter) {
+                            foreach (newsletterList($bdd) as $newsletter) {
                                 echo '<tr>';
                                 echo '<td>' . $newsletter['email'] . '</td>';
                                 echo '<td><a href="newsletter_script.php?id=' . $newsletter['id_newsletter_list'] . '&action=delete' . '" class="bi bi-trash"></a></td>';

@@ -1,116 +1,84 @@
-<!DOCTYPE html>
-<html lang="Fr">
-    
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Règles</title>
-    
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
-    <style>
-        /* Personnalisation du style du slider */
-        .slick-slide img {
-            width: 100%;
-        }
-    </style>  
-    
+    <link rel="stylesheet" href="../css/jim.css">
 </head>
 
-<?php $title = 'Règles';
-include('././includes/head.php'); ?>
+<?php include '../includes/header.php'; ?>
+
+<head>
+    <link rel="stylesheet" href="../css/jim.css">
+</head>
 
 <body>
-    <?php include('./includes/header.php'); ?>
-    <main class="mt-5">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <div class="rules">
+        <h2>Règles de Roll-Of-Odyssey</h2>
+        <p>Voici les règles de bases de Roll-Of-Odyssey. Veuillez les lire attentivement avant de commencer à jouer.</p>
+        <ul>
+            <li>Règle 1 : Choisissez une race pour votre personnage parmi les options disponibles.</li>
+            <li>Règle 2 : Sélectionnez une classe qui représente les compétences et les capacités de votre personnage.</li>
+            <li>Règle 3 : Répartissez les points de caractéristiques (force, dextérité, intelligence, etc.) selon les règles fournies.</li>
+            <li>Règle 4 : Choisissez des compétences et des capacités spéciales pour personnaliser votre personnage.</li>
+            <div class="pic-container">
+                <img src="../img/terrain1.png" alt="terrain">
+            </div>
 
+            <!-- Ajoutez d'autres règles ici -->
+        </ul>
+    </div>
 
-
-        <!-- Bouton vers l'acceuil   -->
+    <h2>règles de base</h2>
+    <ul>
+        <li>-Pour effectuer une action, lancez un dé et ajoutez votre modificateur de compétence approprié.</li>
+        <li>-Le Maître de Jeu décide des résultats des actions en fonction des jets de dés et des circonstances de la situation.</li>
+        <li>-Le combat est résolu en tours, chaque personnage et ennemi -agissant dans un ordre déterminé par l'initiative.</li>
+        <li>-La santé de votre personnage est représentée par des points de vie (PV) ; lorsque ceux-ci atteignent zéro, votre personnage est inconscient ou mort.</li>
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="index.php" class="btn btn-outline-danger mt-3 ml-3">Accueil</a>
-                </div>
+            <h1>Règles et directives pour les utilisateurs</h1>
+
+            <button class="accordion">Règles de sécurités</button>
+            <div class="panel">
+                <h3>Conditions d'utilisation</h3>
+                <p>Les conditions d'utilisation de notre site sont essentielles pour assurer une expérience agréable et sécurisée pour tous les joueurs. Vous devez accepter ces conditions avant de commencer à jouer.</p>
+                <h3>Mentions légales</h3>
+                <p>Les mentions légales décrivent les responsabilités légales de notre site et de ses utilisateurs. Veuillez les lire attentivement pour comprendre vos droits et obligations.</p>
+            </div>
+
+            <button class="accordion">Règles avancées</button>
+            <div class="panel">
+                <h3>Usage politique</h3>
+                <p>L'utilisation politique de notre site est strictement régulée. Toute tentative de promouvoir des agendas politiques ou de manipuler les discussions à des fins politiques est interdite.</p>
+                <h3>Action interdite</h3>
+                <p>Les actions interdites incluent, sans s'y limiter, le harcèlement, la tricherie, et tout comportement nuisible ou perturbateur. Le non-respect de ces règles peut entraîner des sanctions sévères, y compris l'expulsion définitive du site.</p>
+                <h3>Mesure de sécurité</h3>
+                <p>Les mesures de sécurité en place sont destinées à protéger les utilisateurs et leurs données. Toute tentative de contourner ou de compromettre ces mesures sera sévèrement punie.</p>
+                <h3>Temps limité</h3>
+                <p>Les règles concernant le temps limité sont en place pour assurer une distribution équitable du temps de jeu entre tous les utilisateurs. Veillez à respecter les limites de temps afin de garantir une expérience équilibrée pour tous.</p>
             </div>
         </div>
-    
-      <!-- Section avec texte centrée -->
-        <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="text-center">
-                    <h2>Règles</h2>
-                    <p>Ici , nous vous expliquerons un peu comment se passe les jeux de rôles</p>
-                    <p>Puis commment vous amusez au mieux ici !</p>
-                </div>
-            </div>
-        </div>
+
+
+        <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.maxHeight) {
+                        panel.style.maxHeight = null;
+                    } else {
+                        panel.style.maxHeight = panel.scrollHeight + "px";
+                    }
+                });
+            }
+        </script>
+    </ul>
     </div>
-
-     <!-- Section avec image centrée -->
-     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 center-image">
-                <img src="chemin/vers/votre/image.jpg" class="img-fluid" alt="Image Responsive (normalement) du livre">
-            </div>
-        </div>
-    </div>
-
-    <body>
-    <!-- Section avec le slider -->
-    <div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="slider">
-                    <div><img src="image1.jpg" alt="Image 1"></div>
-                    <div><img src="image2.jpg" alt="Image 2"></div>
-                    <div><img src="image3.jpg" alt="Image 3"></div>
-                    <!-- Ajoutez plus de divs avec des images selon vos besoins -->
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Ajouter les bibliothèques JavaScript nécessaires  pour le caroussel-->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <!-- Ajouter slick-carousel JS -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script>
-        // Initialiser le slider avec des options de configuration
-        $(document).ready(function(){
-            $('.slider').slick({
-                dots: true, // Afficher les points de navigation
-                autoplay: true, // Activer le mode de lecture automatique
-                autoplaySpeed: 2000 // Vitesse de transition en millisecondes
-            });
-        });
-    </script>
-
-
-
-<div class="container mt-4">
-        <div class="row">
-            <!-- Colonne pour le premier titre et paragraphe -->
-            <div class="col-md-6">
-                <h2>Essayer ,vous verrez !</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum dolor in magna pharetra, vel feugiat lacus consequat. Vivamus tincidunt eros et orci placerat tincidunt.</p>
-            </div>
-            <!-- Colonne pour le deuxième titre et paragraphe -->
-            <div class="col-md-6">
-                <h2>Plus d'information</h2>
-                <p>Duis vel libero eu justo ultricies laoreet. Cras bibendum, odio et interdum vulputate, elit nulla commodo felis, vitae malesuada lacus lorem eget tortor. Quisque luctus augue nec arcu varius, eu tincidunt tortor consequat.</p>
-            </div>
-        </div>
-    </div>
-
-
-    <?php //include('./includes/footer.php');?>
 </body>
 
 </html>
+
+<?php include '../includes/footer.php'; ?>

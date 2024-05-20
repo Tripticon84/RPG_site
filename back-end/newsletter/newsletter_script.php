@@ -5,10 +5,8 @@ require_once '../script.php';
 /* Liste des email */
 
 // Récupérer les emails de la newsletter
-function newsletterList() {
+function newsletterList($bdd) {
 
-    // Connexion à la base de données
-    $bdd = PDOConnect();
 
     // Écrire la requête SELECT à trous
     $q = 'SELECT id_newsletter_list,email FROM NEWSLETTER_LIST';
@@ -75,7 +73,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'delete' && isset($_GET['id']))
 if (isset($_GET['email']) && isset($_GET['action']) && $_GET['action'] == 'add') {
 
     // Vérifier si l'email n’existe pas déjà dans la newsletter
-    foreach (newsletterList() as $newsletter) {
+    foreach (newsletterList($bdd) as $newsletter) {
         if ($newsletter['email'] == $_GET['email']) {
             header('location:index.php?message=Cet email est déjà inscrit à la newsletter.');
             exit;
@@ -89,13 +87,10 @@ if (isset($_GET['email']) && isset($_GET['action']) && $_GET['action'] == 'add')
 
 /* Newsletter */
 
-function listAllNewsletter() {
-
-    // Connexion à la base de données
-    $bdd = PDOConnect();
+function listAllNewsletter($bdd) {
 
     // Écrire la requête SELECT à trous
-    $q = 'SELECT id_newsletter,date,objet,contenu,campagne1,campagne2,recurrence FROM NEWSLETTER';
+    $q = 'SELECT id_newsletter, date, campagne1, campagne2, campagne3, nb_emails FROM NEWSLETTER';
 
     // Préparer la requête
     $req = $bdd->prepare($q);
@@ -104,11 +99,6 @@ function listAllNewsletter() {
     $req->execute();
 
     // Récupérer les résultats dans un tableau $newsletters
-    $listNewsletters = $req->fetchAll();
+    $listNewsletters = $req->fetchAll(PDO::FETCH_ASSOC);
     return $listNewsletters;
-}
-
-
-if (isset($_GET['action']) && $_GET['action'] == 'addNewsletter') {
-
 }
