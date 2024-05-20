@@ -178,39 +178,3 @@ console.log("2s");
 
 }
 
-
-
-
-// create campagne : 
-async function show_plateau(){
-
-  const response = await fetch('afficher_plateau.php');
-  const data = await response.text() ;
-  const plateaux = JSON.parse(data); 
-  console.log(plateaux);
-
-  let html = "<ul>" ;  
-  for(i=0; i < plateaux.length ;i++){
-    const plateau = plateaux[i] ; //parcours du tableau
-    html+= `<li id="${i}"> ${plateau.plateau_nom} <li>`
-}
-const map=document.getElementById("map_campagne");
-map.innerHTML= html;
-
-}
-
-
-async function create_plateau(){
-
-const response = await fetch('create_plateau.php');
-
-console.log("campagne créer");
-
-show_plateau();
-
-}
-
-
-async function delete_plateau(){
-console.log("campagne deleted");
-}
