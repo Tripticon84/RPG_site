@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (!empty($_POST['texte_je_suis'])){
-    $requete2 = $db->prepare('UPDATE utilisateur SET texte_je_suis = :texte_je_suis WHERE id_uti = :id'); 
+    $requete2 = $db->prepare('UPDATE UTILISATEUR SET texte_je_suis = :texte_je_suis WHERE id_uti = :id'); 
 
 
     $requete2->execute([
