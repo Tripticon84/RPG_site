@@ -107,7 +107,7 @@ $email = $_SESSION['email'];
     <div class="row justify-content-center">
       <!-- Section Info perso -->
       <div class="col-md-8">
-        <div class="bg-light rounded p-4 mb-4" style="background-color: #FFCCCB;">
+        <div class=" bg-body-secondary rounded p-4 mb-4">
           <!-- Contenu de la grande section -->
           <h2 class="text-center">Informations personnelles</h2>
 

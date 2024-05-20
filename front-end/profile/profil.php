@@ -114,7 +114,7 @@ $email = $_SESSION['email'];
     <!-- Section Biographie -->
     <div class="row">
         <div class="col-md-12">
-            <div class="border bg-light p-4 my-4">
+            <div class="border bg-body-secondary p-4 my-4">
                 <h2 class="text-center">Biographie</h2>
                 <textarea class="form-control" id="biography" name = "biography" style="height: auto;" placeholder="test"></textarea>
                 <button type="submit" id="enregistrer" class="btn btn-primary d-block mx-auto">Enregistrer</button>
