@@ -45,7 +45,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front-end/includes/message.php'; ?>
                                     echo '<td>' . $campagnes['id_camp'] . '</td>';
                                     echo '<td>' . $campagnes['id_plateau'] . '</td>';
                                     echo '<td>' . $campagnes['nom'] . '</td>';
-                                    echo '<td>' . '<img src="/image/campagnes/' . $campagnes['logo'] . '" width="200px">' . '</td>';
+                                    echo '<td>' . '<img src="/image/campagnes/' . $campagnes['logo'] . '.png" width="200px">' . '</td>';
                                     echo '<td>' . $campagnes['description'] . '</td>';
                                     if ($campagnes['brouillon'] == 0)
                                         echo '<td>Public</td>';

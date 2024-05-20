@@ -17,32 +17,32 @@ if (isset($_SESSION['email'])) {
 
 <header class="bg-body-tertiary">
   <nav class="navbar navbar-expand-sm bg-body-tertiary sticky-top border-bottom border-1 border-black">
-    <div class="container-fluid justify-content-between text-nowrap flex-sm-wrap"">
+    <div class="container-fluid justify-content-between text-nowrap flex-sm-wrap">
       <div class="d-flex align-items-center flex-sm-wrap">
-      <a href="#" class="navbar-brand">
+      <a href="/front-end/" class="navbar-brand">
         <img src="/front-end/img/logo256px.png" alt="logo" height="150px">
         <span class="text-decoration-none m-1 fw-bold d-none d-sm-inline">Roll of Odyssey</span>
       </a>
 
-      <!-- NavBar / OffCanvas -->
+      <!-- NavBar -->
           <ul class="navbar-nav">
             <li class="nav-item ">
-              <a class="nav-link" aria-current="page" href="/front-end/index.php">Accueil</a>
+              <a class="nav-link" aria-current="page" href="/front-end/">Accueil</a>
             </li>
             <?php
             if (isset($_SESSION['email'])) { ?>
               <li class="nav-item">
-                <a href="workshop/index.php" class="nav-link">Workshop</a>
+                <a href="/front-end/workshop/" class="nav-link">Workshop</a>
               </li>
             <?php } ?>
             <li class="nav-item">
-              <a href="#" class="nav-link">Règles</a>
+              <a href="/front-end/rules/" class="nav-link">Règles</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">Support</a>
+              <a href="/front-end/faq/" class="nav-link">Support</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">À propos</a>
+              <a href="/front-end/about/" class="nav-link">À propos</a>
             </li>
           </ul>
       </div>
@@ -55,7 +55,7 @@ if (isset($_SESSION['email'])) {
               <a href="#" class="d-block text-decoration-none me-5 dropbtn dropdown-toggle" onclick="dropdown()">
                 <img src="/image/users/<?= $user['avatar'] == NULL ? 'default' : $user['avatar'] ?>-64px.png" alt="mdo" width="32" height="32" class="rounded-circle">
               </a>
-              <ul class="dropdown-content rounded-3 m-0" id="dropdownHeader">
+              <ul class="dropdown-content rounded-3 m-0 bg-body-secondary" id="dropdownHeader">
                 <li><a class="dropdown-item bi bi-person" href="/front-end/profile/profil.php"> Profil</a></li>
                 <li><a class="dropdown-item bi bi-map" href="/front-end/campagne/campagne.php"> Mes campagnes</a></li>
                 <li><a class="dropdown-item bi bi-gear" href="/front-end/profile/private.php"> Paramètres</a></li>

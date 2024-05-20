@@ -1,195 +1,84 @@
-<!DOCTYPE html>
-<html lang="Fr">
-    
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FAQ</title>
-    
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"/>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"/>
-    <style>
-        /* Personnalisation du style du slider */
-        .slick-slide img {
-            width: 100%;
-        }
-    </style>  
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Support</title>
+    <link rel="stylesheet" href="../css/jim.css">
 </head>
-
-<?php $title = 'FAQ';
-include('././includes/head.php'); ?>
+<?php
+include '../includes/header.php'; ?>
 
 <body>
-    <?php include('./includes/header.php'); ?>
-    <main class="mt-5">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
+    <h1>FAQ</h1>
 
+    <div class="container">
+        <h1>Règles et directives pour les utilisateurs</h1>
 
-        <!-- Bouton vers l'acceuil   -->
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <a href="index.php" class="btn btn-outline-danger mt-3 ml-3">Accueil</a>
-                </div>
-            </div>
+        <button class="accordion">Question de base</button>
+        <div class="panel">
+            <h3>Qu'est-ce qu'un jeu de rôle ?</h3>
+            <p>Un jeu de rôle (JdR) est une activité dans laquelle les joueurs incarnent des personnages dans un univers fictif, suivant des règles prédéfinies et guidés par un maître du jeu. Les joueurs prennent des décisions et accomplissent des actions en fonction de leurs personnages.</p>
+            <h3>Comment puis-je améliorer mon personnage ?</h3>
+            <p>Votre personnage s'améliore généralement en gagnant de l'expérience (XP) à travers les aventures et les défis. L'XP permet de monter de niveau, ce qui augmente les compétences et les capacités de votre personnage. Les détails spécifiques dépendent du système de jeu utilisé.</p>
         </div>
-    
-      <!-- Section avec texte centrée -->
-        <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="text-center">
-                    <h2>Support FAQ</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum dolor in magna pharetra, vel feugiat lacus consequat. Vivamus tincidunt eros et orci placerat tincidunt.</p>
-                    
-                </div>
-            </div>
+
+        <button class="accordion">Questions avancées</button>
+        <div class="panel">
+            <h3>Que fait le maître du jeu (MJ) ?</h3>
+            <p>Le maître du jeu (MJ) est responsable de créer l'histoire, de décrire l'univers du jeu, et de gérer les interactions entre les personnages et l'environnement. Le MJ arbitre également les règles et résout les conflits qui peuvent survenir pendant la partie.</p>
+            <h3> Comment les actions des personnages sont-elles déterminées ?</h3>
+            <p>Les actions des personnages sont déterminées par un mélange de décisions des joueurs et de jets de dés (ou d'autres mécanismes aléatoires) pour simuler les chances de succès ou d'échec. Les règles du jeu définissent comment ces actions sont résolues.</p>
+            <h3>Mesure de sécurité</h3>
+            <p>Les mesures de sécurité en place sont destinées à protéger les utilisateurs et leurs données. Toute tentative de contourner ou de compromettre ces mesures sera sévèrement punie.</p>
+            <h3>Que faire si je ne suis pas d'accord avec une décision du MJ ?</h3>
+            <p>Si vous n'êtes pas d'accord avec une décision du MJ, discutez-en de manière respectueuse en dehors du jeu. Le MJ a le dernier mot, mais une communication ouverte peut aider à résoudre les conflits et améliorer l'expérience de jeu pour tout le monde.</p>
         </div>
     </div>
 
-     <!-- Section avec image centrée -->
-     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 center-image">
-                <img src="chemin/vers/votre/image.jpg" class="img-fluid" alt="Image Responsive (normalement) des deux mains">
-            </div>
-        </div>
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+    <div class="pic-container">
+        <img src="../img/FAQ.jpg" alt="faq">
     </div>
 
-    <div class="container mt-4">
-        <div class="row">
-            <!-- Colonne pour le premier titre et paragraphe -->
-            <div class="col-md-6">
-                <h2>Titre 1</h2>
-                <p>Paragraphe 1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vestibulum dolor in magna pharetra, vel feugiat lacus consequat. Vivamus tincidunt eros et orci placerat tincidunt.</p>
-            </div>
-            <!-- Colonne pour le deuxième titre et paragraphe -->
-            <div class="col-md-6">
-                <h2>Titre 2</h2>
-                <p>Paragraphe 2. Duis vel libero eu justo ultricies laoreet. Cras bibendum, odio et interdum vulputate, elit nulla commodo felis, vitae malesuada lacus lorem eget tortor. Quisque luctus augue nec arcu varius, eu tincidunt tortor consequat.</p>
-            </div>
-        </div>
-    </div>
+    <p>Si vous rencontrez un bug ou un problème technique en jeu, veuillez utiliser notre système de signalement de problèmes ci-dessous . Décrivez le problème aussi clairement que possible, en indiquant les étapes pour le reproduire, et notre équipe technique travaillera pour le résoudre dès que possible</p>
+    <form action="index.php" method="post">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <label for="message">Message :</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+        <input type="submit" value="Envoyer">
+    </form>
 
-    <div class="container mt-4">
-        <div class="row justify-content-center">
-            <!-- Colonne pour l'image centrée -->
-            <div class="col-md-6 text-center">
-                <img src="votre_image.jpg" class="img-fluid" alt="Image">
-            </div>
-        </div>
-        <div class="row mt-4">
-            <!-- Colonne pour les boutons -->
-            <div class="col-md-6">
-                <!-- Premier bouton -->
-                <button type="button" class="btn btn-primary btn-block">Contactez-nous</button>
-            </div>
-            <div class="col-md-6">
-                <!-- Deuxième bouton -->
-                <button type="button" class="btn btn-primary btn-block">Signaler un problème</button>
-            </div>
-        </div>
-    </div>
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $name = htmlspecialchars($_POST['name']);
+        $email = htmlspecialchars($_POST['email']);
+        $message = htmlspecialchars($_POST['message']);
 
-   
-
-
-
-<!-- Bibliothèque Font Awesome pour les icônes -->
-<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-6 text-center">
-                <!-- Titre cliquable -->
-                <h2 data-toggle="collapse" href="#texteCache" role="button" aria-expanded="false" aria-controls="texteCache">
-                    Question récurente <i class="fas fa-chevron-down"></i>
-                </h2>
-                <!-- Paragraphe de texte caché -->
-                <div class="collapse" id="texteCache">
-                    <h4>Sous sujet</h4>
-                    <p>Réponse a la question</p>
-                </div>
-                <div class="collapse" id="texteCache">
-                    <h4>Sous sujet</h4>
-                    <p>Réponse a la question</p>
-                </div>
-                <div class="collapse" id="texteCache">
-                    <h4>Sous sujet</h4>
-                    <p>Réponse a la question</p>
-                </div>
-                <div class="collapse" id="texteCache">
-                    <h4>Sous sujet</h4>
-                    <p>Réponse a la question</p>
-                </div>
-            </div>
-        </div>
-    </div>
-<div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-6 text-center">
-                <!-- Titre cliquable -->
-                <h2 data-toggle="collapse" href="#texteCache" role="button" aria-expanded="false" aria-controls="texteCache">
-                    Question récurente <i class="fas fa-chevron-down"></i>
-                </h2>
-                <!-- Paragraphe de texte caché -->
-                <div class="collapse" id="texteCache">
-                    <h4>Sous sujet</h4>
-                    <p>Réponse a la question</p>
-                </div>
-                <div class="collapse" id="texteCache">
-                    <h4>Sous sujet</h4>
-                    <p>Réponse a la question</p>
-                </div>
-                <div class="collapse" id="texteCache">
-                    <h4>Sous sujet</h4>
-                    <p>Réponse a la question</p>
-                </div>
-                <div class="collapse" id="texteCache">
-                    <h4>Sous sujet</h4>
-                    <p>Réponse a la question</p>
-                </div>
-            </div>
-        </div>
-    </div>
-<div class="container mt-4">
-        <div class="row justify-content-center">
-            <div class="col-md-6 text-center">
-                <!-- Titre cliquable -->
-                <h2 data-toggle="collapse" href="#texteCache" role="button" aria-expanded="false" aria-controls="texteCache">
-                    Question récurente <i class="fas fa-chevron-down"></i>
-                </h2>
-                <!-- Paragraphe de texte caché -->
-                <div class="collapse" id="texteCache">
-                    <h4>Sous sujet</h4>
-                    <p>Réponse a la question</p>
-                </div>
-                <div class="collapse" id="texteCache">
-                    <h4>Sous sujet</h4>
-                    <p>Réponse a la question</p>
-                </div>
-                <div class="collapse" id="texteCache">
-                    <h4>Sous sujet</h4>
-                    <p>Réponse a la question</p>
-                </div>
-                <div class="collapse" id="texteCache">
-                    <h4>Sous sujet</h4>
-                    <p>Réponse a la question</p>
-                </div>
-            </div>
-        </div>
-    </div>
-        
-   
-
-    <?php //include('./includes/footer.php');?>
+        // Code pour envoyer le message par email ou le stocker dans une base de données
+        echo "<p>Merci, $name. Votre message a été envoyé.</p>";
+    }
+    ?>
 </body>
+<?php include '../includes/footer.php'; ?>
 
 </html>

@@ -11,6 +11,9 @@ dist/
 # Ignorer les fichiers de logs
 logs/
 
+#Ignorer les fichiers de chat
+chats/
+
 
 # Ignorer les images sauf default.jpg
 !/images/users/default.jpg
