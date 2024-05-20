@@ -40,7 +40,7 @@ include('../includes/header.php');
         <div class="col-md-4">
             <div class="border bg-light j p-4 my-4">
             <button type="submit" onclick="create_plateau()" class="btn btn-primary  justify-content-right">+</button>
-            <button type="submit" onclick="show_plateau()" class="btn btn-primary  justify-content-right">-</button>
+            <button type="submit" onclick="show_plateau()" class="btn btn-primary  justify-content-right">Afficher plateaux</button>
             <form method="POST" action ="rename.php"> 
             <button class="btn btn-secondary" type="submit" name="rename" id="reanme">Enregistrer les noms de la map</button>
             

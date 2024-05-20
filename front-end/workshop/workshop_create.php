@@ -40,7 +40,7 @@ if (isset($_GET['create']) && !empty($_GET['create']) && is_numeric($_GET['creat
 
         $_SESSION['id_partie'] = $id_partie;
 
-        header('location: ../front-end/lobby/lobby.php');
+        header('location: ../lobby/lobby.php');
 
     } else {
         http_response_code(500); // INTERNAL SERVER ERROR

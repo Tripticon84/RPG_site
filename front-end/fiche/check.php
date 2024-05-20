@@ -33,59 +33,6 @@ include('../includes/header.php');
 
 
 
-echo($prenom. "" );
-var_dump($prenom); 
-
-echo($nom. "" );
-var_dump($nom); 
-
-
-echo($biographie. "" );
-var_dump($biographie); 
-
-echo($race . "");
-var_dump($race); 
-
-echo($armure . "");
-var_dump($armure); 
-
-echo($vitesse . "");
-var_dump($vitesse); 
-
-echo($initiative . "");
-var_dump($initiative); 
-
-echo($dexterite . "");
-var_dump($dexterite); 
-
-echo($constitution . "");
-var_dump($constitution); 
-
-echo($intelligence . "");
-var_dump($intelligence); 
-
-echo($sagesse . "");
-var_dump($sagesse); 
-
-
-echo($force . "");
-var_dump($force); 
-
-
-echo($charisme . "");
-var_dump($charisme); 
-
-echo($armes . "");
-var_dump($armes);
-
-echo($equipement_capacite . "");
-var_dump($equipement_capacite); 
-
-
-echo($argent . "");
-var_dump($argent); 
-
-
 
 
 
@@ -151,4 +98,4 @@ $requete->execute([
 
 ]);
 
-//header('location:../campagne/jeu.php');
+header('location:../campagne/jeu.php');

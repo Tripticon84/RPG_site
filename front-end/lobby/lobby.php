@@ -13,7 +13,7 @@ NotConnect();
 
 
 
-<div class="container rounded border bg-light">
+<div class="container rounded border bg-body-tertiary">
     <div class="row">
         <!-- Première colonne -->
         <div class="col-md-6 d-flex flex-column"> <!-- d-flex + flex column : avoir une section avec des items a la vertical -->
@@ -61,7 +61,7 @@ NotConnect();
 
 
 
-<div class="container rounded border bg-light">
+<div class="container rounded border bg-body-secondary">
     <div class="row">
         <div class="col-12 mb-3 text-right">
          <p id="limite_spec">0/10</p> 
