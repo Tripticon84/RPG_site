@@ -26,9 +26,9 @@ $tags = $req->fetchAll(PDO::FETCH_ASSOC);
     <main class="mt-4">
         <div class="container">
             <div class="row">
-                <div class="col justify-content-between" style="text-align: start;">
+                <!-- <div class="col justify-content-between" style="text-align: start;">
                     <a name="back" id="back" class="btn btn-primary bi bi-arrow-left" href="#" role="button"> Retour</a>
-                </div>
+                </div> -->
                 <div class="col" style=" text-align: end;">
                     <a name="create" id="buttonCreate" class="btn btn-primary bi bi-plus-circle" href="#" role="button"> Créer</a>
 
