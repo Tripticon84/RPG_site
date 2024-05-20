@@ -49,6 +49,10 @@ function sendMail($email, $subject, $message)
 
     $mail->isSMTP();
 
+    $mail->CharSet = 'UTF-8';
+    
+    $mail->isHTML(true);
+
     $mail->SMTPDebug = SMTP::DEBUG_OFF;
 
     $mail->Host = 'smtp.gmail.com';
