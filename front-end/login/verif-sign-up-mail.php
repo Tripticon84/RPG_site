@@ -77,7 +77,7 @@ if ($email_verif[0]['code'] == $_POST['code']) {
 
 
 
-    header('location:../index.php' . '?' . 'success=Compte vérifier avec succès.'); // FIXME: Renvoi vers le profil de l'utilisateur
+    header('location:../campagne/campagne.php');
     exit;
 }
 

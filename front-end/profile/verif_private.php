@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Prépare et exécute la requête SQL pour mettre à jour le pseudo de l'utilisateur
         
         if(!empty($prenom)){
-        $requete2 = $db->prepare('UPDATE utilisateur SET prenom = :prenom WHERE id_uti = :id'); //prépare la requête modifiant le le prénom
+        $requete2 = $db->prepare('UPDATE UTILISATEUR SET prenom = :prenom WHERE id_uti = :id'); //prépare la requête modifiant le le prénom
         $requete2->execute([
             'prenom' => $prenom, 
             'id' =>$id 
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         if(!empty($nom)){
-        $requete3 = $db->prepare('UPDATE utilisateur SET nom = :nom WHERE id_uti = :id');  //prépare la requête modifiant le nom
+        $requete3 = $db->prepare('UPDATE UTILISATEUR SET nom = :nom WHERE id_uti = :id');  //prépare la requête modifiant le nom
         $requete3->execute([
             'nom' => $nom, 
             'id' =>$id 
@@ -88,7 +88,7 @@ if (!empty($_POST['pseudo'])){
             exit;
         } 
         else{    
-        $requete = $db->prepare('UPDATE utilisateur SET pseudo = :pseudo WHERE id_uti = :id');  //prépare la requête modifiant le pseudo
+        $requete = $db->prepare('UPDATE UTILISATEUR SET pseudo = :pseudo WHERE id_uti = :id');  //prépare la requête modifiant le pseudo
         $requete->execute([
         'pseudo' => $pseudo, 
         'id' =>$id 
@@ -127,7 +127,7 @@ if (!empty($results2) && $results2[0]['email'] == $_POST['email']
 }//fin du if
 
 else{  
-    $requete4 = $db->prepare('UPDATE utilisateur SET email = :email WHERE id_uti = :id');  //prépare la requête modifiant l'email
+    $requete4 = $db->prepare('UPDATE UTILISATEUR SET email = :email WHERE id_uti = :id');  //prépare la requête modifiant l'email
     $requete4->execute([
             'email' => $email, 
             'id' =>$id 
@@ -209,7 +209,7 @@ $pass_hash = hash('sha256', $pass_salt);
     $pass_salt=$newpassword . $salt ;
     $pass_hash = hash('sha256', $pass_salt);
   
-    $requete7 = $db->prepare('UPDATE utilisateur SET password = :password WHERE id_uti = :id');
+    $requete7 = $db->prepare('UPDATE UTILISATEUR SET password = :password WHERE id_uti = :id');
 
     $requete7->execute([
         'id' => $id,

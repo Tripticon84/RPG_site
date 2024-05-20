@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
 
     if (!empty($_POST['texte_recherche'])){
-    $requete = $db->prepare('UPDATE utilisateur SET texte_recherche = :texte_recherche WHERE id_uti = :id'); 
+    $requete = $db->prepare('UPDATE UTILISATEUR SET texte_recherche = :texte_recherche WHERE id_uti = :id'); 
 
 
     $requete->execute([

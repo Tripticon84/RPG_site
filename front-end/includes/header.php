@@ -59,7 +59,7 @@ if (isset($_SESSION['email'])) {
                 <li><a class="dropdown-item bi bi-person" href="/front-end/profile/profil.php"> Profil</a></li>
                 <li><a class="dropdown-item bi bi-map" href="/front-end/campagne/campagne.php"> Mes campagnes</a></li>
                 <li><a class="dropdown-item bi bi-gear" href="/front-end/profile/private.php"> Paramètres</a></li>
-                <li><a class="dropdown-item" href="#">  XX</a></li>
+                <!-- <li><a class="dropdown-item" href="#">  XX</a></li> -->
                 <hr class="my-1">
                 <li><a class="dropdown-item bi bi-door-open" href="/front-end/login/logout.php">  Déconnexion</a></li>
               </ul>

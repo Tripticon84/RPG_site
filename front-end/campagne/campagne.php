@@ -1,4 +1,4 @@
-<?php $title = 'campagne';
+<?php $title = 'Campagne';
 include('../script.php');
 include('../includes/head.php'); 
 include('../includes/header.php'); 
@@ -23,7 +23,7 @@ $db = PDOConnect();
 
     <div class="d-flex col mx-2 my-2 justify-content-end">
     <form method="post" action="verif_code.php">
-        <input type="text"  id="code" name="code" placeholder="Ajout par code ex : JX95D"></input>
+        <input type="text" id="code" name="code" placeholder="Ajout par code ex : JX95D"></input>
         <button type="submit" class="btn btn-secondary">+</button>
     </form>
 

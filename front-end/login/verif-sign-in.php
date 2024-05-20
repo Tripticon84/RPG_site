@@ -128,7 +128,7 @@ $_SESSION['id_uti'] = $results[0]['id_uti'];
 writeLogSignIn(true, $_POST['email']);
 
 // Redirection vers la page d'accueil
-header('location:../index.php'); // FIXME: Renvoi vers la page des campagnes du joueur
+header('location:../campagne/campagne.php');
 exit;
 
 
