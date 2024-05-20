@@ -152,8 +152,8 @@ $email = $_SESSION['email'];
                 <!-- Bouton en dessous des trois champs à droite -->
                 <button type="submit" id="enregistrer"  class="btn btn-primary mt-2">Enregistrer</button>
               </div>
-              <button type="submit" id="enregistrer"  class="btn btn-primary mt-2">Export des infos utilisateurs</button>
-              <button type="submit" id="enregistrer"  class="btn btn-primary mt-2">Supprimer mon compte</button>
+              <a type="submit" href="genpdf.php?user=<?=$_SESSION['id_uti']?>" id="enregistrer"  class="btn btn-primary mt-2">Export des infos utilisateurs</a>
+              <a type="submit" href="delete.php" id="enregistrer"  class="btn btn-primary mt-2">Supprimer mon compte</a>
 
             </div>
           </div>
