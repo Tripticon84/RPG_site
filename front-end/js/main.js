@@ -25,7 +25,7 @@ async function searchCampaigns() {
     html += `<h5 class="card-title">${campaign.nom}</h5>`;
     html += `<h6 class="card-subtitle ms-2 text-secondary">${campaign.pseudo}</h6>`;
     html += `<p class="card-text overflow-auto" style="height: 6rem;">${campaign.description}</p>`;
-    html += `<a href="workshop_script.php?create=${campaign.id_camp}" class="btn btn-primary">Créer une partie</a>`;
+    html += `<a href="workshop_create.php?create=${campaign.id_camp}" class="btn btn-primary">Créer une partie</a>`;
     html += "</div>";
     html += "</div>";
   }

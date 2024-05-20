@@ -14,28 +14,26 @@ if (isset($_GET['search']) && isset($_GET['sort']) && isset($_GET['order'])) {
         $q = "SELECT CAMPAGNE.id_camp, CAMPAGNE.nom, CAMPAGNE.description, CAMPAGNE.logo, UTILISATEUR.pseudo
               FROM CAMPAGNE
               JOIN UTILISATEUR ON CAMPAGNE.createur = UTILISATEUR.id_uti
-              WHERE CAMPAGNE.brouillon=0 ORDER BY :sort :order;";
+              WHERE CAMPAGNE.brouillon=0 ORDER BY $sort $order;";
         $req = $bdd->prepare($q);
-        $success = $req->execute([
-            'sort' => $sort,
-            'order' => $order
-        ]);
+        $success = $req->execute();
+
     } else {
         $q = "SELECT CAMPAGNE.id_camp, CAMPAGNE.nom, CAMPAGNE.description, CAMPAGNE.logo, UTILISATEUR.pseudo
               FROM CAMPAGNE
               JOIN UTILISATEUR ON CAMPAGNE.createur = UTILISATEUR.id_uti
-              WHERE CAMPAGNE.brouillon=0 AND CAMPAGNE.nom LIKE :search ORDER BY :sort :order;";
+              WHERE CAMPAGNE.brouillon=0 AND CAMPAGNE.nom LIKE :search ORDER BY $sort $order;";
         $req = $bdd->prepare($q);
         $success = $req->execute([
-            'search' => '%' . $s . '%',
-            'sort' => $sort,
-            'order' => $order
+            'search' => '%' . $s . '%'
         ]);
     }
 
 
     if ($success) {
         $campagnes = $req->fetchAll(PDO::FETCH_ASSOC);
+
+        header('Content-Type: application/json');
         echo json_encode($campagnes);
     }
 } else {
