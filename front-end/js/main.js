@@ -19,7 +19,7 @@ async function searchCampaigns() {
 
   for (let i = 0; i < campaigns.length; i++) {
     const campaign = campaigns[i];
-    html += '<div class="card" style="width: 18rem; height:fit-content">';
+    html += '<div class="card me-3 mb-3" style="width: 18rem; height:fit-content">';
     html += `<img src="/image/campagnes/${campaign.logo}.png" class="card-img-top" alt="Image de couverture" style="height:11rem" />`;
     html += '<div class="card-body">';
     html += `<h5 class="card-title">${campaign.nom}</h5>`;
@@ -132,6 +132,9 @@ async function sendChat() {
   const messageInput = document.getElementById("chatInput");
   const message = messageInput.value;
 
+  if (message === "") return;
+
+
   const res = await fetch("chat_send.php", {
     method: "POST",
     headers: {
@@ -140,7 +143,7 @@ async function sendChat() {
     body: `chatID=${chatID}&message=${message}`,
   });
 
-  messageInput.value = "";
+  messageInput.value = ""; // Vide le champ de texte
 
   await displayChat();
   scrollDown();
