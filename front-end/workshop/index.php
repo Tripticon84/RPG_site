@@ -36,7 +36,7 @@ $tags = $req->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <div class="row mt-3 mb-5 rounded-3 bg-body-secondary">
                 <!-- Sidebar -->
-                <div class="d-flex flex-column col-3 p-3 ">
+                <div class="d-flex flex-column col-12 col-md-3 p-3 ">
                     <label for="search">Rechercher</label>
                     <input type="text" name="search" id="search" class="form-control" placeholder="Rechercher une campagne" oninput="searchCampaigns()">
                     <select name="sort" id="sort" class="form-select mt-2" oninput="searchCampaigns()">
@@ -68,7 +68,7 @@ $tags = $req->fetchAll(PDO::FETCH_ASSOC);
                 </div>
 
                 <!-- Campagne -->
-                <div class="d-flex col-9 rounded-3 p-3" id="result">
+                <div class="d-flex flex-column flex-md-row col-md-9 col-12 p-3 flex-wrap align-content-center align-content-md-start" id="result">
 
                 </div>
             </div>
