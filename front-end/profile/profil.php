@@ -5,7 +5,7 @@ include('../includes/header.php');
 
 if (!isset($_SESSION['id_uti'])) {
     // Redirige vers l’accueil
-    header("Location: index.php");
+    header("Location: ../index.php");
     exit; 
 } 
 
@@ -42,7 +42,7 @@ $email = $_SESSION['email'];
     <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <a href="index.php" class="btn btn-outline-danger mt-3 ml-3">Accueil</a>
+                    <a href="../index.php" class="btn btn-outline-danger mt-3 ml-3">Accueil</a>
                 </div>
             </div>
         </div>
@@ -80,7 +80,7 @@ $email = $_SESSION['email'];
         <div class="col-md-8">
             <div class="rounded border bg-body-secondary p-4 my-4"> 
                 <h2>Je suis</h2>
-                <textarea class="form-control" id="texte_je_suis" name = "texte_je_suis" style="height: auto;" placeholder="<?php echo($texte_je_suis)?>"></textarea>
+                <textarea class="form-control" id="texte_je_suis" name = "texte_je_suis" style="height: auto;" placeholder="Décrivez quel genre de joueur êtes vous , quel type de personnages appréciez-vous jouer ?"><?php echo($texte_je_suis)?></textarea>
                 <button type="submit" id="enregistrer" class="btn btn-primary d-block mx-auto">Enregistrer</button>
             </div> 
         </div>
@@ -105,7 +105,7 @@ $email = $_SESSION['email'];
         <div class="col-md-8">
             <div class="border bg-body-secondary p-4 my-4">
                 <h2>Je cherche dans un groupe</h2>
-                <textarea class="form-control" id="texte_recherche" name = "texte_recherche" style="height: auto;" placeholder="<?php echo($texte_recherche)?>"></textarea>
+                <textarea class="form-control" id="texte_recherche" name = "texte_recherche" style="height: auto;" placeholder="Décrviez ce que vous recherchez comme groupe de jeu"><?php echo($texte_recherche)?></textarea>
                 <button type="submit" id="enregistrer" class="btn btn-primary d-block mx-auto">Enregistrer</button>
             </div>
         </div>

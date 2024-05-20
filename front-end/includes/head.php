@@ -23,4 +23,5 @@
     <script
         src="/js/bootstrap.bundle.min.js"
     ></script>
+    <script src="/front-end/js/main.js"></script>
 </head>

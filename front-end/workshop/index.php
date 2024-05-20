@@ -30,7 +30,7 @@ $tags = $req->fetchAll(PDO::FETCH_ASSOC);
                     <a name="back" id="back" class="btn btn-primary bi bi-arrow-left" href="#" role="button"> Retour</a>
                 </div>
                 <div class="col" style=" text-align: end;">
-                    <a name="create" id="buttonCreate" class="btn btn-primary bi bi-plus-circle" href="#" role="button"> Créer</a>
+                    <a name="create" id="buttonCreate" class="btn btn-primary bi bi-plus-circle" href="../campagne/create_campagne.php" role="button"> Créer une campagne</a>
 
                 </div>
             </div>

@@ -19,6 +19,17 @@ function logPage($title) {
         fclose($log);
 }
 
+
+function NotConnect(){
+
+    if (!isset($_SESSION['id_uti'])) {
+        // Redirige vers l'acceuil
+        header("Location:index.php");     
+        exit; 
+    } 
+}
+
+
 function PDOConnect() {
 
     require_once $_SERVER['DOCUMENT_ROOT'] . '/config.php';
