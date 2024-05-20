@@ -1,10 +1,9 @@
 <?php
 
-function getChat($chatID)
+function getChat($pseudo, $chatID)
 {
 
-    session_start();
-    $result[] = $_SESSION['pseudo'];
+    $result[] = $pseudo;
 
     // Vérifier si le dossier chat existe, sinon le créer
     $chatDir = $_SERVER['DOCUMENT_ROOT'] . '/chats';

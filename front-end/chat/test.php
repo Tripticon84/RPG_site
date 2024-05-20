@@ -4,10 +4,8 @@ require_once '../includes/head.php';
 require_once '../script.php';
 require_once 'chat_script.php';
 
-// addChat(1, 'admin', 'Bonjour');
-
-// json_encode(getChat(1));
-
+session_start();
+$_SESSION['id_partie'] = 1;
 
 ?>
 
@@ -15,7 +13,6 @@ require_once 'chat_script.php';
     <script>
         displayChat()
         scrollDown();
-
     </script>
 </div>
 
@@ -29,5 +26,5 @@ require_once 'chat_script.php';
     </div>
     <script>
         setInterval(displayChat, 1000);
-
     </script>
+</div>

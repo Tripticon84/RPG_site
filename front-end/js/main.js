@@ -77,10 +77,8 @@ async function EasterEgg(searchInput) {
 }
 
 async function displayChat() {
-  const chatInput = new URLSearchParams(window.location.search);
-  const chatID = chatInput.get("gameID");
 
-  const res = await fetch("chat_get.php?chatID=" + chatID);
+  const res = await fetch("chat_get.php");
   const data = await res.text();
   const messages = JSON.parse(data);
 
@@ -103,7 +101,7 @@ async function displayChat() {
         html += "<!-- Message -->";
         html += `<div class="d-flex">`;
         // html += `<img src="https://via.placeholder.com/50" alt="Avatar" class="rounded-circle m-2" width="50px" height="50px">`;
-        html += `<div class="bg-body-secondary p-1 me-5 rounded-4 m-2 p-2" style="width: fit-content;">`;
+        html += `<div class="bg-body-secondary me-5 rounded-4 m-2 p-2" style="width: fit-content;">`;
         html += `<div class="fw-bold">${message[1]}</div>`;
         html += `<div>${message[2]}</div>`;
         html += `<div class="text-end text-body-secondary">${message[0]}</div>`;
@@ -129,12 +127,10 @@ function scrollDown() {
     const div = document.getElementById("chatResult");
     div.scrollTop = div.scrollHeight;
     
-  }, 10);
+  }, 50);
 }
 
 async function sendChat() {
-  const chatInput = new URLSearchParams(window.location.search);
-  const chatID = chatInput.get("gameID");
 
   const messageInput = document.getElementById("chatInput");
   const message = messageInput.value;
@@ -147,7 +143,7 @@ async function sendChat() {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: `chatID=${chatID}&message=${message}`,
+    body: `message=${message}`,
   });
 
   messageInput.value = ""; // Vide le champ de texte
