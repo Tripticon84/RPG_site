@@ -56,7 +56,7 @@ $log = logPage($title);  // déclenche la fonction logPage ?>
 
 $db = PDOConnect();
 
-$req = $db->prepare('SELECT pseudo, email, nom , prenom FROM utilisateur WHERE id_uti = :id'); //requete récuparéant les infos users incompléte , pour la compléter : 
+$req = $db->prepare('SELECT pseudo, email, nom , prenom FROM UTILISATEUR WHERE id_uti = :id'); //requete récuparéant les infos users incompléte , pour la compléter : 
 
 //$stmt = $db->prepare("SELECT pseudo FROM users WHERE email = :email"); :email sert a utiliser le current email dans la session
 // $stmt->bindParam(':email', $email); // Liaison du paramètre nommé à la valeur de l'email de session   
@@ -78,7 +78,6 @@ $email = $_SESSION['email'];
 
 
 <body>
-<script  src="js/bootstrap.bundle.min.js"></script>
 <script  src="js/profil.js"></script>
 
     <main class="mt-5">

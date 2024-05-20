@@ -14,7 +14,7 @@ $log = logPage($title);  // déclenche la fonction logPage
 
 $db = PDOConnect();
 
-$req = $db->prepare('SELECT pseudo, email, nom , prenom,texte_je_suis, texte_recherche FROM utilisateur WHERE id_uti = :id'); //requête récupérant les infos users incomplete , pour la compléter : 
+$req = $db->prepare('SELECT pseudo, email, nom , prenom,texte_je_suis, texte_recherche FROM UTILISATEUR WHERE id_uti = :id'); //requête récupérant les infos users incomplete , pour la compléter : 
 
 $req->execute([
   'id' =>  $_SESSION['id_uti']
