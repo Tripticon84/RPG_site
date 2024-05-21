@@ -28,9 +28,9 @@ $tags = $req->fetchAll(PDO::FETCH_ASSOC);
                 <!-- <div class="col justify-content-between" style="text-align: start;">
                     <a name="back" id="back" class="btn btn-primary bi bi-arrow-left" href="#" role="button"> Retour</a>
                 </div> -->
-                <!-- <div class="col" style=" text-align: end;">
-                    <a name="create" id="buttonCreate" class="btn btn-primary bi bi-plus-circle" href="../campagne/create_campagne.php" role="button"> Créer une campagne</a>
-                </div> -->
+                <div class="col" style=" text-align: end;">
+                    <a name="create" id="buttonCreate" class="btn btn-primary bi bi-plus-circle" href="../campagne/workshop_create.php" role="button"> Créer une campagne</a>
+                </div>
             </div>
             <div class="row mt-3 mb-5 rounded-3 bg-body-secondary">
                 <!-- Sidebar -->
